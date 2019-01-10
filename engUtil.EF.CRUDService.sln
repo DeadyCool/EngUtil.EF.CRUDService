@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "engUtil.EF.CRUDService", "engUtil.EF.CRUDService\engUtil.EF.CRUDService.csproj", "{8C190653-4E6C-407C-805D-BDDA331C9A0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "engUtil.EF.CRUDService.Extensions", "engUtil.EF.CRUDService.Extensions\engUtil.EF.CRUDService.Extensions.csproj", "{677E8277-54EF-4D4E-896F-ABBFA08E6C14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C190653-4E6C-407C-805D-BDDA331C9A0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C190653-4E6C-407C-805D-BDDA331C9A0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C190653-4E6C-407C-805D-BDDA331C9A0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C190653-4E6C-407C-805D-BDDA331C9A0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{677E8277-54EF-4D4E-896F-ABBFA08E6C14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{677E8277-54EF-4D4E-896F-ABBFA08E6C14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{677E8277-54EF-4D4E-896F-ABBFA08E6C14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{677E8277-54EF-4D4E-896F-ABBFA08E6C14}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3597C68-ACD2-4364-8139-DBF2BC6F41D4}
+	EndGlobalSection
+EndGlobal
