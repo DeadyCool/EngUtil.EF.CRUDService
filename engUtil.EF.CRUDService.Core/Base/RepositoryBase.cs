@@ -7,6 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Threading.Tasks;
+using engUtil.EF.CRUDService.Core.Helper;
 
 namespace engUtil.EF.CRUDService.Core.Base
 {
@@ -54,7 +55,26 @@ namespace engUtil.EF.CRUDService.Core.Base
 
         public virtual async Task<IEnumerable<TModel>> GetAsync(Expression<Func<TModel, bool>> filter = null, Func<IQueryable<TModel>, IOrderedQueryable<TModel>> orderBy = null, int skip = 0, int take = 0)
         {
-            throw new NotImplementedException();          
+            using (var ctx = DbContextService.CreateContext())
+            {
+                IQueryable<TModel> query;
+                var queryableSet = ctx.GetDbSetAsIQuariable<TEntity>();
+                if (queryableSet == null)
+                    throw new NullReferenceException($"Could not found DbSet of Entity-Type { typeof(TEntity).Name } in DbContext!");
+                if (filter != null)
+                    query = queryableSet.Select(AsModelExpression).Where(filter);
+                else
+                    query = queryableSet.Select(AsModelExpression);
+                if (orderBy != null)
+                {
+                    query = orderBy(query);
+                    if (skip > 0)
+                        query = query.Skip(skip);
+                    if (take > 0)
+                        query = query.Take(take);
+                }
+                return await query.ToListAsync();
+            }          
         }
 
         public virtual TModel Insert(TModel model)
@@ -64,7 +84,12 @@ namespace engUtil.EF.CRUDService.Core.Base
 
         public virtual async Task<TModel> InsertAsync(TModel model)
         {
-            throw new NotImplementedException();
+            using (var ctx = DbContextService.CreateContext())
+            {       
+                object entity = ctx.Add((object)AsEntity(model));
+                await ctx.SaveChangesAsync();             
+                return AsModel((TEntity)entity);
+            }        
         }
 
         public virtual void Update(TModel model)
@@ -74,27 +99,26 @@ namespace engUtil.EF.CRUDService.Core.Base
 
         public virtual async Task UpdateAsync(TModel model)
         {
-            throw new NotImplementedException();
+            using (var ctx = DbContextService.CreateContext())
+            {
+                var newEntityState = AsEntity(model);
+                var entity = await ctx.FindAsync(typeof(TEntity), GetPrimaryKeyValues(newEntityState));
+                ctx.Entry(entity).CurrentValues.SetValues(newEntityState);
+                await ctx.SaveChangesAsync();
+            }
         }
 
         public virtual void Delete(TModel model)
         {
-            throw new NotImplementedException();
-        }
-
-        public virtual void Delete(int id)
-        {
-            if (id <= 0)
-                throw new InvalidOperationException("Could not delete Entity with id '0'");
-            Delete(GetIdFieldName(), id);
-        }
-
-        public virtual void Delete(string idFieldName, int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        
+            using (var ctx = DbContextService.CreateContext())
+            {
+                var entityToDelete = AsEntity(model);
+                var entity = ctx.Find(typeof(TEntity), GetPrimaryKeyValues(entityToDelete));
+                ctx.Attach(entity);
+                ctx.Remove(entity);
+                ctx.SaveChanges();
+            }
+        }        
 
         #endregion
 

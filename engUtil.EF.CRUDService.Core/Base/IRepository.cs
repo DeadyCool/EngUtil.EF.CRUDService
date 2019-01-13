@@ -56,18 +56,9 @@ namespace engUtil.EF.CRUDService.Core.Base
         Task UpdateAsync(TModel model);
 
         /// <summary>
-        /// delete the model in the repository by id
+        /// remove the model from the repository
         /// </summary>
-        /// <param name="id">id value (Default fieldname ID, _ID, ID_)</param>
-        void Delete(int id);
-
-        /// <summary>
-        /// delete the model in the repository by id
-        /// </summary>
-        /// <param name="idFieldName">ID-FieldName</param>
-        /// <param name="id">id value</param>
-        void Delete(string idFieldName, int id);
-
+        /// <param name="model"></param>
         void Delete(TModel model);
     }
 }

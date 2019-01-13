@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 using engUtil.Dto;
-using engUtil.EF.CRUDService.Base;
+using engUtil.EF.CRUDService.Core.Base;
 
 namespace engUtil.EF.CRUDService.Extensions
 {

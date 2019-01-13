@@ -59,13 +59,13 @@ namespace engUtil.EF.CRUDService.Base
             using (var ctx = DbContextService.CreateContext())
             {
                 IQueryable<TModel> query;
-                var dbSet = ctx.GetDbSetAsIQuariable<TEntity>();
-                if (dbSet == null)
+                var queryableSet = ctx.GetDbSetAsIQuariable<TEntity>();
+                if (queryableSet == null)
                     throw new NullReferenceException($"Could not found DbSet of Entity-Type { typeof(TEntity).Name } in DbContext!");
                 if (filter != null)
-                    query = dbSet.Select(AsModelExpression).Where(filter);
+                    query = queryableSet.Select(AsModelExpression).Where(filter);
                 else
-                    query = dbSet.Select(AsModelExpression);
+                    query = queryableSet.Select(AsModelExpression);
                 if (orderBy != null)
                 {
                     query = orderBy(query);
@@ -102,57 +102,27 @@ namespace engUtil.EF.CRUDService.Base
 
         public virtual async Task UpdateAsync(TModel model)
         {
-            try
+            using (var ctx = DbContextService.CreateContext())
             {
-                using (var ctx = DbContextService.CreateContext())
-                {
-                    var dbSet = ctx.Set(typeof(TEntity));
-                    var newEntityState = AsEntity(model);
-                    var entity = await dbSet.FindAsync(GetPrimaryKeyValues(newEntityState));
-                    ctx.Entry(entity).CurrentValues.SetValues(newEntityState);
-                    await ctx.SaveChangesAsync();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
+                var dbSet = ctx.Set(typeof(TEntity));
+                var newEntityState = AsEntity(model);
+                var entity = await dbSet.FindAsync(GetPrimaryKeyValues(newEntityState));
+                ctx.Entry(entity).CurrentValues.SetValues(newEntityState);
+                await ctx.SaveChangesAsync();
             }
         }
 
         public virtual void Delete(TModel model)
-        {
-            var keyExpression = GetKeyExpression(model);
-            var modelToDelete = Get(keyExpression).FirstOrDefault();
+        { 
             using (var ctx = DbContextService.CreateContext())
             {
+                var entityToDelete = AsEntity(model);
                 var dbSet = ctx.Set(typeof(TEntity));
-                var entity = AsEntity(modelToDelete);
+                var entity = dbSet.Find(GetPrimaryKeyValues(entityToDelete));            
                 dbSet.Attach(entity);
                 dbSet.Remove(entity);
                 ctx.SaveChanges();
             }
-        }
-
-        public virtual void Delete(int id)
-        {
-            if (id <= 0)
-                throw new InvalidOperationException("Could not delete Entity with id '0'");
-            Delete(GetIdFieldName(), id);
-        }
-
-        public virtual void Delete(string idFieldName, int id)
-        {
-            if (id <= 0)
-                throw new InvalidOperationException("Could not delete Entity with id '0'");
-            using (var ctx = DbContextService.CreateContext())
-            {
-                var modelToDelete = Get(GetIdExpression(idFieldName, id)).FirstOrDefault();
-                var dbSet = ctx.Set(typeof(TEntity));
-                var entity = AsEntity(modelToDelete);
-                dbSet.Attach(entity);
-                dbSet.Remove(entity);
-                ctx.SaveChanges();
-            };
         }
 
         #endregion

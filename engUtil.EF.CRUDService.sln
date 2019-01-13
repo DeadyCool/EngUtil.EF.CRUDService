@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "engUtil.EF.CRUDService", "e
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "engUtil.EF.CRUDService.Extensions", "engUtil.EF.CRUDService.Extensions\engUtil.EF.CRUDService.Extensions.csproj", "{677E8277-54EF-4D4E-896F-ABBFA08E6C14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "engUtil.EF.CRUDService.Core", "engUtil.EF.CRUDService.Core\engUtil.EF.CRUDService.Core.csproj", "{CF85376C-EE04-49E4-8FD4-31686FA17282}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "engUtil.EF.CRUDService.Core", "engUtil.EF.CRUDService.Core\engUtil.EF.CRUDService.Core.csproj", "{CF85376C-EE04-49E4-8FD4-31686FA17282}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "engUtil.EF.CRUDService.CoreExtension", "engUtil.EF.CRUDService.CoreExtension\engUtil.EF.CRUDService.CoreExtension.csproj", "{5DB42642-9DB5-45FB-BCDE-8542351612A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{CF85376C-EE04-49E4-8FD4-31686FA17282}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF85376C-EE04-49E4-8FD4-31686FA17282}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF85376C-EE04-49E4-8FD4-31686FA17282}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DB42642-9DB5-45FB-BCDE-8542351612A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DB42642-9DB5-45FB-BCDE-8542351612A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DB42642-9DB5-45FB-BCDE-8542351612A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DB42642-9DB5-45FB-BCDE-8542351612A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
