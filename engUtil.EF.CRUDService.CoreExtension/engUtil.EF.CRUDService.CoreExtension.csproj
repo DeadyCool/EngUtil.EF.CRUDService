@@ -11,10 +11,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\engUtil.EF.CRUDService.Core\engUtil.EF.CRUDService.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="engUtil.Dto.Mapper">
       <HintPath>..\..\dotNet_Standard\EngUtil.Dto.Mapper\engUtil.Dto.Mapper\bin\Debug\netstandard2.0\engUtil.Dto.Mapper.dll</HintPath>
     </Reference>

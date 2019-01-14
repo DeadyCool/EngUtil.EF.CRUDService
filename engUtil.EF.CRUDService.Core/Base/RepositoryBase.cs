@@ -85,8 +85,8 @@ namespace engUtil.EF.CRUDService.Core.Base
         public virtual async Task<TModel> InsertAsync(TModel model)
         {
             using (var ctx = DbContextService.CreateContext())
-            {       
-                object entity = ctx.Add((object)AsEntity(model));
+            {              
+                object entity = ctx.DbSetAdd(AsEntity(model));
                 await ctx.SaveChangesAsync();             
                 return AsModel((TEntity)entity);
             }        
