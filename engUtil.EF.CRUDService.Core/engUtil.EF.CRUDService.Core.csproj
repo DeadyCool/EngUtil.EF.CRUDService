@@ -9,6 +9,8 @@
     <PackageProjectUrl>https://github.com/DeadyCool/EngUtil.EF.CRUDService/tree/master/engUtil.EF.CRUDService.Core</PackageProjectUrl>
     <RepositoryUrl>https://github.com/DeadyCool/EngUtil.EF.CRUDService/tree/master/engUtil.EF.CRUDService.Core</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
+    <PackageLicenseUrl>https://github.com/DeadyCool/EngUtil.EF.CRUDService/blob/master/License.txt</PackageLicenseUrl>
+    <Description>CRUD-Service for EntityFramework</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
