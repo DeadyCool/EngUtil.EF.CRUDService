@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <Copyright>Oliver Engels</Copyright>
     <RepositoryType>Git</RepositoryType>
   </PropertyGroup>
@@ -11,9 +11,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="engUtil.Dto.Mapper">
-      <HintPath>..\..\dotNet_Standard\EngUtil.Dto.Mapper\engUtil.Dto.Mapper\bin\Debug\netstandard2.0\engUtil.Dto.Mapper.dll</HintPath>
-    </Reference>
+    <PackageReference Include="engUtil.Dto.Mapper" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\engUtil.EF.CRUDService.Core\engUtil.EF.CRUDService.Core.csproj" />
   </ItemGroup>
 
 </Project>

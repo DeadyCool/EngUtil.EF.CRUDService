@@ -5,6 +5,7 @@ using engUtil.EF.CRUDService.Core.Base;
 
 namespace engUtil.EF.CRUDService.Extensions
 {
+    [MapDefinition]
     public abstract class RepositoryBaseDto<TEntity, TModel> : RepositoryBase<TEntity, TModel>
     {
         public RepositoryBaseDto(IDbContextService contextService) 

@@ -47,7 +47,7 @@ namespace engUtil.EF.CRUDService.Core.Base
         {
             return AsModelExpression.Compile().Invoke(entity);
         }
-
+               
         public virtual IEnumerable<TModel> Get(Expression<Func<TModel, bool>> filter = null, Func<IQueryable<TModel>, IOrderedQueryable<TModel>> orderBy = null, int skip = 0, int take = 0)
         {
             return GetAsync(filter, orderBy, skip, take).Result;
@@ -77,6 +77,25 @@ namespace engUtil.EF.CRUDService.Core.Base
             }          
         }
 
+        public virtual TModel GetFirst(Expression<Func<TModel, bool>> filter)
+        {
+            return GetFirstAsync(filter).Result;        
+        }
+
+        public virtual async Task<TModel> GetFirstAsync(Expression<Func<TModel, bool>> filter)
+        {
+            using (var ctx = DbContextService.CreateContext())
+            {
+                IQueryable<TModel> query;
+                var queryableSet = ctx.GetDbSetAsIQuariable<TEntity>();
+                if (queryableSet == null)
+                    throw new NullReferenceException($"Could not found DbSet of Entity-Type { typeof(TEntity).Name } in DbContext!");
+                query = queryableSet.Select(AsModelExpression).Where(filter);
+                return await query.FirstOrDefaultAsync();
+            }
+        }
+
+
         public virtual TModel Insert(TModel model)
         {
             return InsertAsync(model).Result;
@@ -87,7 +106,7 @@ namespace engUtil.EF.CRUDService.Core.Base
             using (var ctx = DbContextService.CreateContext())
             {              
                 object entity = ctx.DbSetAdd(AsEntity(model));
-                await ctx.SaveChangesAsync();             
+                await ctx.SaveChangesAsync();
                 return AsModel((TEntity)entity);
             }        
         }
