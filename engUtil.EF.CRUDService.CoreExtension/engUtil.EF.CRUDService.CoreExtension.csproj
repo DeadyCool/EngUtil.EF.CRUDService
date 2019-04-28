@@ -15,10 +15,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="engUtil.Dto.Mapper" Version="1.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\..\DeadyCool\EngUtil.Dto.Mapper\engUtil.Dto.Mapper\engUtil.Dto.Mapper.csproj" />
     <ProjectReference Include="..\engUtil.EF.CRUDService.Core\engUtil.EF.CRUDService.Core.csproj" />
   </ItemGroup>
 
