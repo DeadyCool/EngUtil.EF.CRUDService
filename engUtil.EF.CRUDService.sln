@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "engUtil.EF.CRUDService.Core
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "engUtil.EF.CRUDService.CoreExtension", "engUtil.EF.CRUDService.CoreExtension\engUtil.EF.CRUDService.CoreExtension.csproj", "{5DB42642-9DB5-45FB-BCDE-8542351612A5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "engUtil.Dto.Mapper", "..\DeadyCool\EngUtil.Dto.Mapper\engUtil.Dto.Mapper\engUtil.Dto.Mapper.csproj", "{D0DF1F9C-4678-4AE0-B6FB-2B4F1271AB95}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{5DB42642-9DB5-45FB-BCDE-8542351612A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DB42642-9DB5-45FB-BCDE-8542351612A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DB42642-9DB5-45FB-BCDE-8542351612A5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D0DF1F9C-4678-4AE0-B6FB-2B4F1271AB95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D0DF1F9C-4678-4AE0-B6FB-2B4F1271AB95}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D0DF1F9C-4678-4AE0-B6FB-2B4F1271AB95}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D0DF1F9C-4678-4AE0-B6FB-2B4F1271AB95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
