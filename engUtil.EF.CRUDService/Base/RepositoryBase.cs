@@ -7,6 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Threading.Tasks;
+using engUtil.CRUDService.Interfaces;
 using engUtil.EF.CRUDService.Helper;
 
 
@@ -195,6 +196,16 @@ namespace engUtil.EF.CRUDService.Base
                 })
                 .OrderBy(x => x.KeyOrder)
                 .Select(x => x.Property.GetValue(entity)).ToArray();
+        }
+
+        public TModel GetFirst(Expression<Func<TModel, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<TModel> GetFirstAsync(Expression<Func<TModel, bool>> filter)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

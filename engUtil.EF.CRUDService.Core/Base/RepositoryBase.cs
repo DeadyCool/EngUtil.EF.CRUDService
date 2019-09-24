@@ -8,6 +8,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Threading.Tasks;
 using engUtil.EF.CRUDService.Core.Helper;
+using engUtil.CRUDService.Interfaces;
 
 namespace engUtil.EF.CRUDService.Core.Base
 {

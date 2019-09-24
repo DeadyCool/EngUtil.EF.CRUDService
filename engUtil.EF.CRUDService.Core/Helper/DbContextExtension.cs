@@ -31,8 +31,6 @@ namespace engUtil.EF.CRUDService.Core.Helper
                 .Invoke(dbSet, new[] { entry });
             return ((EntityEntry)returnEntry).Entity;
         }
-        
-        
 
         private static MethodInfo GetGenericSetMethodFromDbContext(Type genericType)
         {

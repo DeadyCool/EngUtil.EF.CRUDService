@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace engUtil.EF.CRUDService.Base
+namespace engUtil.CRUDService.Interfaces
 {
     public interface IRepositoryDto<TEntity, TModel>
     {

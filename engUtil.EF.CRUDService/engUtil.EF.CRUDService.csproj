@@ -49,8 +49,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\IDbContextService.cs" />
-    <Compile Include="Base\IRepository.cs" />
-    <Compile Include="Base\IRepositoryDto.cs" />
     <Compile Include="Base\RepositoryBase.cs" />
     <Compile Include="Helper\DbContextExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -58,6 +56,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\engUtil.CRUDService\engUtil.CRUDService.csproj">
+      <Project>{141000A0-673F-4FDD-8078-5A44B50224B2}</Project>
+      <Name>engUtil.CRUDService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

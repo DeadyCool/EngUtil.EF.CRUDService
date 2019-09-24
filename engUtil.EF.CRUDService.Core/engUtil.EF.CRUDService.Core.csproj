@@ -3,9 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <Copyright>Oliver Engels</Copyright>
-    <Version>1.0.1</Version>
-    <FileVersion>1.0.0.1</FileVersion>
-    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <Version>1.0.2</Version>
+    <FileVersion>1.0.0.2</FileVersion>
+    <AssemblyVersion>1.0.0.2</AssemblyVersion>
     <PackageProjectUrl>https://github.com/DeadyCool/EngUtil.EF.CRUDService/tree/master/engUtil.EF.CRUDService.Core</PackageProjectUrl>
     <RepositoryUrl>https://github.com/DeadyCool/EngUtil.EF.CRUDService/tree/master/engUtil.EF.CRUDService.Core</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
@@ -23,6 +23,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\engUtil.CRUDService\engUtil.CRUDService.csproj" />
   </ItemGroup>
 
 </Project>

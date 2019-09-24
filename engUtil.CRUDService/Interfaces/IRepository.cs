@@ -4,10 +4,22 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace engUtil.EF.CRUDService.Base
+namespace engUtil.CRUDService.Interfaces
 {
     public interface IRepository<TModel>
     {
+        /// <summary>
+        /// Get first entity from the Repository
+        /// </summary>
+        /// <param name="filter">Expression Filter</param>
+        TModel GetFirst(Expression<Func<TModel, bool>> filter);
+
+        /// <summaryentity
+        /// Get first TModel from the Repository
+        /// </summary>
+        /// <param name="filter">Expression Filter</param>
+        Task<TModel> GetFirstAsync(Expression<Func<TModel, bool>> filter);
+
         /// <summary>
         /// Get List of entities from the Repository
         /// </summary>
@@ -60,5 +72,7 @@ namespace engUtil.EF.CRUDService.Base
         /// </summary>
         /// <param name="model"></param>
         void Delete(TModel model);
+
+
     }
 }
