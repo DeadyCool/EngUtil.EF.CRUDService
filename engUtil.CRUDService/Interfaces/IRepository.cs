@@ -1,4 +1,8 @@
-﻿using System;
+// --------------------------------------------------------------------------------
+// <copyright filename="IRepository.cs" date="12-13-2019">(c) 2019 All Rights Reserved</copyright>
+// <author>Oliver Engels</author>
+// --------------------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -8,6 +12,20 @@ namespace engUtil.CRUDService.Interfaces
 {
     public interface IRepository<TModel>
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        int Count(Expression<Func<TModel, bool>> filter = null);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        Task<int> CountAsync(Expression<Func<TModel, bool>> filter = null);
+
         /// <summary>
         /// Get first entity from the Repository
         /// </summary>
@@ -19,6 +37,7 @@ namespace engUtil.CRUDService.Interfaces
         /// </summary>
         /// <param name="filter">Expression Filter</param>
         Task<TModel> GetFirstAsync(Expression<Func<TModel, bool>> filter);
+
 
         /// <summary>
         /// Get List of entities from the Repository

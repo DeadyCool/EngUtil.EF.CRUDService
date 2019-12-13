@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "engUtil.EF.CRUDService.Core
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "engUtil.EF.CRUDService.CoreExtension", "engUtil.EF.CRUDService.CoreExtension\engUtil.EF.CRUDService.CoreExtension.csproj", "{5DB42642-9DB5-45FB-BCDE-8542351612A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "engUtil.CRUDService", "engUtil.CRUDService\engUtil.CRUDService.csproj", "{141000A0-673F-4FDD-8078-5A44B50224B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "engUtil.CRUDService", "engUtil.CRUDService\engUtil.CRUDService.csproj", "{141000A0-673F-4FDD-8078-5A44B50224B2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "engUtil.EF.CRUDService.Core_Tests", "engUtil.EF.CRUDService.Core_Tests\engUtil.EF.CRUDService.Core_Tests.csproj", "{F441B77E-8861-4ACD-82FE-FF841FBA1FF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{141000A0-673F-4FDD-8078-5A44B50224B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{141000A0-673F-4FDD-8078-5A44B50224B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{141000A0-673F-4FDD-8078-5A44B50224B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F441B77E-8861-4ACD-82FE-FF841FBA1FF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F441B77E-8861-4ACD-82FE-FF841FBA1FF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F441B77E-8861-4ACD-82FE-FF841FBA1FF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F441B77E-8861-4ACD-82FE-FF841FBA1FF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

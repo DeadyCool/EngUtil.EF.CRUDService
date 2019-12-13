@@ -1,4 +1,8 @@
-﻿using System;
+// --------------------------------------------------------------------------------
+// <copyright filename="RepositoryBase.cs" date="12-13-2019">(c) 2019 All Rights Reserved</copyright>
+// <author>Oliver Engels</author>
+// --------------------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -204,6 +208,16 @@ namespace engUtil.EF.CRUDService.Base
         }
 
         public Task<TModel> GetFirstAsync(Expression<Func<TModel, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Count(Expression<Func<TModel, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<int> CountAsync(Expression<Func<TModel, bool>> filter = null)
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+// --------------------------------------------------------------------------------
+// <copyright filename="DbContextExtension.cs" date="12-13-2019">(c) 2019 All Rights Reserved</copyright>
+// <author>Oliver Engels</author>
+// --------------------------------------------------------------------------------
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;

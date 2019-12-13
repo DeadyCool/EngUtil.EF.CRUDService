@@ -1,21 +1,27 @@
-﻿using System;
+// --------------------------------------------------------------------------------
+// <copyright filename="RepositoryBaseDto.cs" date="12-13-2019">(c) 2019 All Rights Reserved</copyright>
+// <author>Oliver Engels</author>
+// --------------------------------------------------------------------------------
+using System;
 using System.Linq.Expressions;
+using engUtil.CRUDService.Interfaces;
 using engUtil.Dto;
 using engUtil.EF.CRUDService.Core.Base;
+using Microsoft.EntityFrameworkCore;
 
 namespace engUtil.EF.CRUDService.Extensions
 {
-    [MapDefinition]
-    public abstract class RepositoryBaseDto<TEntity, TModel> : RepositoryBase<TEntity, TModel>
+    public abstract class RepositoryBaseDto<TDbContext, TEntity, TModel> : RepositoryBase<TDbContext, TEntity, TModel>
+        where TDbContext : DbContext
     {
         protected IMapper Mapper;
 
-        public RepositoryBaseDto(IDbContextService contextService) 
+        public RepositoryBaseDto(ISessionContext<TDbContext> contextService) 
             : base(contextService)
         {
         }
 
-        public RepositoryBaseDto(IDbContextService contextService, IMapper dtoMapper) 
+        public RepositoryBaseDto(ISessionContext<TDbContext> contextService, IMapper dtoMapper) 
             : base(contextService)
         {
             Mapper = dtoMapper;

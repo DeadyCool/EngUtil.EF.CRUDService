@@ -8,6 +8,9 @@
     <PackageProjectUrl>https://github.com/DeadyCool/EngUtil.EF.CRUDService/tree/master/engUtil.EF.CRUDService.CoreExtension</PackageProjectUrl>
     <RepositoryUrl>https://github.com/DeadyCool/EngUtil.EF.CRUDService/tree/master/engUtil.EF.CRUDService.CoreExtension</RepositoryUrl>
     <Description />
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <FileVersion>1.0.3.0</FileVersion>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

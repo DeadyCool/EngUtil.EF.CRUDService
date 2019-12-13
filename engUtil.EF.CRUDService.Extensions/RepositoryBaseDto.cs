@@ -1,4 +1,8 @@
-﻿using System;
+// --------------------------------------------------------------------------------
+// <copyright filename="RepositoryBaseDto.cs" date="12-13-2019">(c) 2019 All Rights Reserved</copyright>
+// <author>Oliver Engels</author>
+// --------------------------------------------------------------------------------
+using System;
 using System.Linq.Expressions;
 using engUtil.Dto;
 using engUtil.EF.CRUDService.Base;
