@@ -3,17 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "engUtil.EF.CRUDService", "engUtil.EF.CRUDService\engUtil.EF.CRUDService.csproj", "{8C190653-4E6C-407C-805D-BDDA331C9A0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngUtil.EF.CRUDService.Core", "engUtil.EF.CRUDService.Core\EngUtil.EF.CRUDService.Core.csproj", "{CF85376C-EE04-49E4-8FD4-31686FA17282}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "engUtil.EF.CRUDService.Extensions", "engUtil.EF.CRUDService.Extensions\engUtil.EF.CRUDService.Extensions.csproj", "{677E8277-54EF-4D4E-896F-ABBFA08E6C14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngUtil.EF.CRUDService.CoreExtension", "engUtil.EF.CRUDService.CoreExtension\EngUtil.EF.CRUDService.CoreExtension.csproj", "{5DB42642-9DB5-45FB-BCDE-8542351612A5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "engUtil.EF.CRUDService.Core", "engUtil.EF.CRUDService.Core\engUtil.EF.CRUDService.Core.csproj", "{CF85376C-EE04-49E4-8FD4-31686FA17282}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "engUtil.EF.CRUDService.CoreExtension", "engUtil.EF.CRUDService.CoreExtension\engUtil.EF.CRUDService.CoreExtension.csproj", "{5DB42642-9DB5-45FB-BCDE-8542351612A5}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "engUtil.CRUDService", "engUtil.CRUDService\engUtil.CRUDService.csproj", "{141000A0-673F-4FDD-8078-5A44B50224B2}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "engUtil.EF.CRUDService.Core_Tests", "engUtil.EF.CRUDService.Core_Tests\engUtil.EF.CRUDService.Core_Tests.csproj", "{F441B77E-8861-4ACD-82FE-FF841FBA1FF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngUtil.EF.CRUDService.Core_Tests", "engUtil.EF.CRUDService.Core_Tests\EngUtil.EF.CRUDService.Core_Tests.csproj", "{F441B77E-8861-4ACD-82FE-FF841FBA1FF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,14 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8C190653-4E6C-407C-805D-BDDA331C9A0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C190653-4E6C-407C-805D-BDDA331C9A0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C190653-4E6C-407C-805D-BDDA331C9A0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C190653-4E6C-407C-805D-BDDA331C9A0F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{677E8277-54EF-4D4E-896F-ABBFA08E6C14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{677E8277-54EF-4D4E-896F-ABBFA08E6C14}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{677E8277-54EF-4D4E-896F-ABBFA08E6C14}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{677E8277-54EF-4D4E-896F-ABBFA08E6C14}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CF85376C-EE04-49E4-8FD4-31686FA17282}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CF85376C-EE04-49E4-8FD4-31686FA17282}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF85376C-EE04-49E4-8FD4-31686FA17282}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -37,10 +23,6 @@ Global
 		{5DB42642-9DB5-45FB-BCDE-8542351612A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DB42642-9DB5-45FB-BCDE-8542351612A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DB42642-9DB5-45FB-BCDE-8542351612A5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{141000A0-673F-4FDD-8078-5A44B50224B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{141000A0-673F-4FDD-8078-5A44B50224B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{141000A0-673F-4FDD-8078-5A44B50224B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{141000A0-673F-4FDD-8078-5A44B50224B2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F441B77E-8861-4ACD-82FE-FF841FBA1FF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F441B77E-8861-4ACD-82FE-FF841FBA1FF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F441B77E-8861-4ACD-82FE-FF841FBA1FF1}.Release|Any CPU.ActiveCfg = Release|Any CPU

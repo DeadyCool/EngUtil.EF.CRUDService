@@ -4,12 +4,12 @@
 // --------------------------------------------------------------------------------
 using System;
 using System.Linq.Expressions;
-using engUtil.CRUDService.Interfaces;
 using engUtil.Dto;
-using engUtil.EF.CRUDService.Core.Base;
+using EngUtil.EF.CRUDService.Core.Base;
+using EngUtil.EF.CRUDService.Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace engUtil.EF.CRUDService.Extensions
+namespace EngUtil.EF.CRUDService.Extensions
 {
     public abstract class RepositoryBaseDto<TDbContext, TEntity, TModel> : RepositoryBase<TDbContext, TEntity, TModel>
         where TDbContext : DbContext

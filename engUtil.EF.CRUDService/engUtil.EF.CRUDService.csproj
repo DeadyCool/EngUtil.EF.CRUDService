@@ -8,8 +8,8 @@
     <ProjectGuid>{8C190653-4E6C-407C-805D-BDDA331C9A0F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>engUtil.EF.CRUDService</RootNamespace>
-    <AssemblyName>engUtil.EF.CRUDService</AssemblyName>
+    <RootNamespace>EngUtil.EF.CRUDService</RootNamespace>
+    <AssemblyName>EngUtil.EF.CRUDService</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

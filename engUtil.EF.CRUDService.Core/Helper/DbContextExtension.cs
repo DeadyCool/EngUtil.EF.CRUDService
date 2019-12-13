@@ -5,11 +5,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace engUtil.EF.CRUDService.Core.Helper
+namespace EngUtil.EF.CRUDService.Core.Helper
 {
     public static class DbContextExtension
     {

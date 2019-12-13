@@ -11,6 +11,9 @@
     <RepositoryType>Git</RepositoryType>
     <PackageLicenseUrl>https://github.com/DeadyCool/EngUtil.EF.CRUDService/blob/master/License.txt</PackageLicenseUrl>
     <Description>CRUD-Service for EntityFramework</Description>
+    <PackageId>EngUtil.EF.CRUDService.Core</PackageId>
+    <Authors>Oliver Engels</Authors>
+    <Product>EntityFramework-CRUD-Service</Product>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -23,10 +26,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\engUtil.CRUDService\engUtil.CRUDService.csproj" />
   </ItemGroup>
 
 </Project>

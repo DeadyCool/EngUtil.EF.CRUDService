@@ -1,15 +1,11 @@
 // --------------------------------------------------------------------------------
-// <copyright filename="PhoneBookContext.cs" date="12-13-2019">
-// (c) 2019 All Rights Reserved
-// </copyright>
-// <author>
-// Oliver Engels
-// </author>
+// <copyright filename="PhoneBookContext.cs" date="12-13-2019">(c) 2019 All Rights Reserved</copyright>
+// <author>Oliver Engels</author>
 // --------------------------------------------------------------------------------
-using engUtil.EF.CRUDService.Core_Tests.DataAccess.Entities;
+using EngUtil.EF.CRUDService.Core_Tests.DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace engUtil.EF.CRUDService.Core_Tests.DataAccess
+namespace EngUtil.EF.CRUDService.Core_Tests.DataAccess
 {
     public class PhoneBookContext : DbContext
     {

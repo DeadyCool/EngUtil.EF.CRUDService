@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace engUtil.EF.CRUDService.Core_Tests.DataAccess.Entities
+namespace EngUtil.EF.CRUDService.Core_Tests.DataAccess.Entities
 {
     public abstract class EntityBase
     {

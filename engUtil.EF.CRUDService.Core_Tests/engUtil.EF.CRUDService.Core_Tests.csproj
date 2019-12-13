@@ -25,7 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\engUtil.CRUDService\engUtil.CRUDService.csproj" />
+    <ProjectReference Include="..\engUtil.EF.CRUDService.CoreExtension\EngUtil.EF.CRUDService.CoreExtension.csproj" />
+    <ProjectReference Include="..\engUtil.EF.CRUDService.Core\EngUtil.EF.CRUDService.Core.csproj" />
   </ItemGroup>
 
 </Project>

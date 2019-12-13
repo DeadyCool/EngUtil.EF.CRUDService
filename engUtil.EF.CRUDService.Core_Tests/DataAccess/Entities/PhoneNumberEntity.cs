@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace engUtil.EF.CRUDService.Core_Tests.DataAccess.Entities
+namespace EngUtil.EF.CRUDService.Core_Tests.DataAccess.Entities
 {
     public class PhoneNumberEntity : EntityBase
     {

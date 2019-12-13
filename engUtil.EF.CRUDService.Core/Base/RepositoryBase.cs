@@ -11,11 +11,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Threading.Tasks;
-using engUtil.EF.CRUDService.Core.Helper;
-using engUtil.CRUDService.Interfaces;
-using engUtil.CRUDService.Base;
+using EngUtil.EF.CRUDService.Core.Helper;
+using EngUtil.EF.CRUDService.Core.Interfaces;
 
-namespace engUtil.EF.CRUDService.Core.Base
+namespace EngUtil.EF.CRUDService.Core.Base
 {
     public abstract class RepositoryBase<TDbContext, TEntity, TModel> : CRUDServiceBase<TDbContext>, IRepository<TModel>, IRepositoryDto<TEntity, TModel>
         where TDbContext : DbContext

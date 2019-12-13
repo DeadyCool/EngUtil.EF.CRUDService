@@ -55,12 +55,6 @@
     <Compile Include="RepositoryBaseDto.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\engUtil.EF.CRUDService\engUtil.EF.CRUDService.csproj">
-      <Project>{8c190653-4e6c-407c-805d-bdda331c9a0f}</Project>
-      <Name>engUtil.EF.CRUDService</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>

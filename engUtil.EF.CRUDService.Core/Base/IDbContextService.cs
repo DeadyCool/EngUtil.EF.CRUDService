@@ -4,7 +4,7 @@
 // --------------------------------------------------------------------------------
 using Microsoft.EntityFrameworkCore;
 
-namespace engUtil.EF.CRUDService.Core.Base
+namespace EngUtil.EF.CRUDService.Core.Base
 {
     public interface IDbContextService
     {
