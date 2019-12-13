@@ -5,9 +5,11 @@
 using System;
 using System.Linq.Expressions;
 
-namespace EngUtil.EF.CRUDService.Core.Interfaces
+namespace EngUtil.EF.CRUDService.Core
 {
     public interface IRepositoryDto<TEntity, TModel>
+        where TModel : class
+        where TEntity : class
     {
         /// <summary>
         /// Transformation expression from Model to Entity

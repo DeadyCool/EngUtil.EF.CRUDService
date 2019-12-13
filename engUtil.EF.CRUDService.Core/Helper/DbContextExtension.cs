@@ -8,7 +8,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-namespace EngUtil.EF.CRUDService.Core.Helper
+namespace EngUtil.EF.CRUDService.Core
 {
     public static class DbContextExtension
     {

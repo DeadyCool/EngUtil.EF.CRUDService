@@ -2,30 +2,23 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <PackageId>EngUtil.EF.CRUDService.Core</PackageId>
+    <Version>1.0.4</Version>
+    <Authors>Oliver Engels</Authors>
+    <Product>EntityFramework-CRUD-Service</Product>
     <Copyright>Oliver Engels</Copyright>
-    <Version>1.0.3</Version>
-    <FileVersion>1.0.3.0</FileVersion>
-    <AssemblyVersion>1.0.3.0</AssemblyVersion>
     <PackageProjectUrl>https://github.com/DeadyCool/EngUtil.EF.CRUDService/tree/master/engUtil.EF.CRUDService.Core</PackageProjectUrl>
     <RepositoryUrl>https://github.com/DeadyCool/EngUtil.EF.CRUDService/tree/master/engUtil.EF.CRUDService.Core</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
-    <PackageLicenseUrl>https://github.com/DeadyCool/EngUtil.EF.CRUDService/blob/master/License.txt</PackageLicenseUrl>
-    <Description>CRUD-Service for EntityFramework</Description>
-    <PackageId>EngUtil.EF.CRUDService.Core</PackageId>
-    <Authors>Oliver Engels</Authors>
-    <Product>EntityFramework-CRUD-Service</Product>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>C:\MyTools\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="License.txt" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
   </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
-  </ItemGroup>
-
+  <PropertyGroup>
+  <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+</PropertyGroup>
+<ItemGroup>
+  <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" />
+</ItemGroup>
 </Project>

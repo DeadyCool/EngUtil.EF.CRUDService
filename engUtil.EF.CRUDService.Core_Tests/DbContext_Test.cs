@@ -4,10 +4,7 @@
 // --------------------------------------------------------------------------------
 using EngUtil.EF.CRUDService.Core_Tests.DataAccess;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace EngUtil.EF.CRUDService.Core_Tests
 {

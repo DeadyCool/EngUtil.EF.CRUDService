@@ -2,10 +2,13 @@
 // <copyright filename="ISessionContext.cs" date="12-13-2019">(c) 2019 All Rights Reserved</copyright>
 // <author>Oliver Engels</author>
 // --------------------------------------------------------------------------------
-namespace EngUtil.EF.CRUDService.Core.Interfaces
+using Microsoft.EntityFrameworkCore;
+
+namespace EngUtil.EF.CRUDService.Core
 {
-    public interface ISessionContext<T>
+    public interface ISessionContext<TDbContext>
+        where TDbContext : DbContext
     {
-        T GetContext();
+        TDbContext GetContext();
     }
 }

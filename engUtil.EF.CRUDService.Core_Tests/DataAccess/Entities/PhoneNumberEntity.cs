@@ -3,8 +3,7 @@
 // <author>Oliver Engels</author>
 // --------------------------------------------------------------------------------
 using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace EngUtil.EF.CRUDService.Core_Tests.DataAccess.Entities
 {
@@ -15,6 +14,7 @@ namespace EngUtil.EF.CRUDService.Core_Tests.DataAccess.Entities
         public NumberType NumberType { get; set; }
 
         public Guid PersonId { get; set; }
+
         public PersonEntity Person { get; set; }
     }
 }

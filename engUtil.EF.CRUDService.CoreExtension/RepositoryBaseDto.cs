@@ -5,14 +5,14 @@
 using System;
 using System.Linq.Expressions;
 using engUtil.Dto;
-using EngUtil.EF.CRUDService.Core.Base;
-using EngUtil.EF.CRUDService.Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace EngUtil.EF.CRUDService.Extensions
+namespace EngUtil.EF.CRUDService.Core
 {
     public abstract class RepositoryBaseDto<TDbContext, TEntity, TModel> : RepositoryBase<TDbContext, TEntity, TModel>
         where TDbContext : DbContext
+        where TEntity : class
+        where TModel : class
     {
         protected IMapper Mapper;
 

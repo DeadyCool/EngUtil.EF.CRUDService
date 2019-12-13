@@ -2,21 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <Copyright>Oliver Engels</Copyright>
-    <RepositoryType>Git</RepositoryType>
-    <PackageLicenseUrl>https://github.com/DeadyCool/EngUtil.EF.CRUDService/blob/master/License.txt</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/DeadyCool/EngUtil.EF.CRUDService/tree/master/engUtil.EF.CRUDService.CoreExtension</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/DeadyCool/EngUtil.EF.CRUDService/tree/master/engUtil.EF.CRUDService.CoreExtension</RepositoryUrl>
-    <Description>CRUD-Service for EntityFramework DTO-Extension</Description>
-    <AssemblyVersion>1.0.3.0</AssemblyVersion>
-    <FileVersion>1.0.3.0</FileVersion>
-    <Version>1.0.3</Version>
-    <Product>EntityFramework-CRUD-Service-DTO Extension</Product>
-    <Authors>Oliver Engels</Authors>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>C:\MyTools\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\engUtil.EF.CRUDService.Core\EngUtil.EF.CRUDService.Core.csproj" />
+    <ProjectReference Include="..\EngUtil.EF.CRUDService.Core\EngUtil.EF.CRUDService.Core.csproj" />
   </ItemGroup>
 
 </Project>

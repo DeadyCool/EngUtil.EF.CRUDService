@@ -14,6 +14,7 @@ namespace EngUtil.EF.CRUDService.Core_Tests.DataAccess.Entities
         public string EMailAddress { get; set; }
 
         public Guid PersonId { get; set; }
+
         public PersonEntity Person { get; set; }
     }
 }

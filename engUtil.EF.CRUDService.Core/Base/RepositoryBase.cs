@@ -11,13 +11,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Threading.Tasks;
-using EngUtil.EF.CRUDService.Core.Helper;
-using EngUtil.EF.CRUDService.Core.Interfaces;
 
-namespace EngUtil.EF.CRUDService.Core.Base
+namespace EngUtil.EF.CRUDService.Core
 {
-    public abstract class RepositoryBase<TDbContext, TEntity, TModel> : CRUDServiceBase<TDbContext>, IRepository<TModel>, IRepositoryDto<TEntity, TModel>
+    public abstract class RepositoryBase<TDbContext, TEntity, TModel> : RepositoryContextSession<TDbContext>, IRepository<TModel>, IRepositoryDto<TEntity, TModel>
         where TDbContext : DbContext
+        where TEntity : class
+        where TModel : class
     {        
 
         #region ctor
@@ -139,20 +139,21 @@ namespace EngUtil.EF.CRUDService.Core.Base
             object entity;
             using (var ctx = SessionContext.GetContext())
             {
-                entity = ctx.DbSetAdd(AsEntity(model));
-                ctx.SaveChanges();                
-            }
+                entity = ctx.DbSetAdd(AsEntity(model));              
+                ctx.SaveChanges(); 
+            }            
             return AsModel((TEntity)entity);
         }
 
         public virtual async Task<TModel> InsertAsync(TModel model)
         {
+            object entity;
             using (var ctx = SessionContext.GetContext())
             {              
-                object entity = ctx.DbSetAdd(AsEntity(model));
-                await ctx.SaveChangesAsync();
-                return AsModel((TEntity)entity);
-            }        
+                entity = ctx.DbSetAdd(AsEntity(model));
+                await ctx.SaveChangesAsync();                            
+            }
+            return AsModel((TEntity)entity);
         }
 
         public virtual void Update(TModel model)
@@ -160,7 +161,7 @@ namespace EngUtil.EF.CRUDService.Core.Base
             using (var ctx = SessionContext.GetContext())
             {
                 var newEntityState = AsEntity(model);
-                var entity = ctx.Find(typeof(TEntity), GetPrimaryKeyValues(newEntityState));
+                var entity = ctx.Find<TEntity>(GetPrimaryKeyValues(newEntityState));
                 ctx.Entry(entity).CurrentValues.SetValues(newEntityState);
                 ctx.SaveChanges();
             }
@@ -171,7 +172,7 @@ namespace EngUtil.EF.CRUDService.Core.Base
             using (var ctx = SessionContext.GetContext())
             {
                 var newEntityState = AsEntity(model);
-                var entity = await ctx.FindAsync(typeof(TEntity), GetPrimaryKeyValues(newEntityState));
+                var entity = await ctx.FindAsync<TEntity>(GetPrimaryKeyValues(newEntityState));
                 ctx.Entry(entity).CurrentValues.SetValues(newEntityState);
                 await ctx.SaveChangesAsync();
             }
@@ -182,7 +183,7 @@ namespace EngUtil.EF.CRUDService.Core.Base
             using (var ctx = SessionContext.GetContext())
             {
                 var entityToDelete = AsEntity(model);
-                var entity = ctx.Find(typeof(TEntity), GetPrimaryKeyValues(entityToDelete));
+                var entity = ctx.Find<TEntity>(GetPrimaryKeyValues(entityToDelete));
                 ctx.Attach(entity);
                 ctx.Remove(entity);
                 ctx.SaveChanges();

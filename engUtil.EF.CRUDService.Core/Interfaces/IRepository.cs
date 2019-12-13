@@ -8,9 +8,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace EngUtil.EF.CRUDService.Core.Interfaces
+namespace EngUtil.EF.CRUDService.Core
 {
     public interface IRepository<TModel>
+        where TModel : class
     {
         /// <summary>
         /// 
