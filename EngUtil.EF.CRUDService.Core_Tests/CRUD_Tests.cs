@@ -4,17 +4,13 @@ using EngUtil.EF.CRUDService.Core_Tests.DataAccess;
 using EngUtil.EF.CRUDService.Core_Tests.Models;
 using EngUtil.EF.CRUDService.Core_Tests.Repos;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace EngUtil.EF.CRUDService.Core_Tests
 {
     public class CRUD_Tests
-    {
-        
+    {        
         private IMapper _mapper;
         private ISessionContext<PhoneBookContext> _session;
         private IRepository<PersonModel> _personRepo;
@@ -47,7 +43,7 @@ namespace EngUtil.EF.CRUDService.Core_Tests
         }
 
         [Test]
-        public void CreateIwas_Test()
+        public void CreatePerson_Test()
         {
             var createdPerson = _personRepo.Insert(new PersonModel
             {
