@@ -3,7 +3,6 @@ using EngUtil.EF.CRUDService.Core_Tests.DataAccess;
 using EngUtil.EF.CRUDService.Core_Tests.DependencyResolution;
 using EngUtil.EF.CRUDService.Core_Tests.Models;
 using EngUtil.Mock.Helper;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 using System;
