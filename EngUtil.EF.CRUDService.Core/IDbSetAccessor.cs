@@ -8,7 +8,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace EngUtil.EF.CRUDService.Core.Interfaces
+namespace EngUtil.EF.CRUDService.Core
 {
     /// <summary>
     /// A interface to allows access to the db context from the repository
