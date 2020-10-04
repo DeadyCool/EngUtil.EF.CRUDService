@@ -12,15 +12,14 @@
     <RepositoryType>Git</RepositoryType>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="engUtil.Dto.Mapper" Version="1.0.3" />
-    <PackageReference Include="EngUtil.EF.CRUDService.Core" Version="1.0.4" />
-  </ItemGroup>
-
   <PropertyGroup>
   <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 </PropertyGroup>
 <ItemGroup>
   <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" />
+</ItemGroup>
+<ItemGroup>
+  <ProjectReference Include="..\..\..\EngUtil.Dto.Mapper\engUtil.Dto.Mapper\EngUtil.Dto.Mapper.csproj" />
+  <ProjectReference Include="..\EngUtil.EF.CRUDService.Core\EngUtil.EF.CRUDService.Core.csproj" />
 </ItemGroup>
 </Project>

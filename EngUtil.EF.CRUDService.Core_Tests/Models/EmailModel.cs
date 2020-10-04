@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace EngUtil.EF.CRUDService.Core_Tests.Models
 {
@@ -8,6 +6,6 @@ namespace EngUtil.EF.CRUDService.Core_Tests.Models
     {
         public Guid PersonId { get; set; }
         public PersonModel Person { get; set; }
-        public string EMailAddress { get; internal set; }
+        public string EMailAdresse { get; internal set; }
     }
 }

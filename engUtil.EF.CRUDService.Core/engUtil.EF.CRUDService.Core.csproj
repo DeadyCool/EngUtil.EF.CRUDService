@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <PackageId>EngUtil.EF.CRUDService.Core</PackageId>
-    <Version>1.0.4</Version>
+    <Version>1.1.0-beta</Version>
     <Authors>Oliver Engels</Authors>
     <Product>EntityFramework-CRUD-Service</Product>
     <Copyright>Oliver Engels</Copyright>
@@ -17,6 +17,10 @@
   </ItemGroup>
   <PropertyGroup>
   <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+  <AssemblyVersion>1.1.0.0</AssemblyVersion>
+  <FileVersion>1.1.0.0</FileVersion>
+  <Description>Repository pattern with simple CRUD-Operation for EntityFramework.Core</Description>
+  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 </PropertyGroup>
 <ItemGroup>
   <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" />

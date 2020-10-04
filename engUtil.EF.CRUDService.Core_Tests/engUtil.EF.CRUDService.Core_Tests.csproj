@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -7,19 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="engUtil.Dto.Mapper" Version="1.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.6" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
     <PackageReference Include="nunit" Version="3.11.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.11.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EngUtil.EF.CRUDService.CoreExtension\EngUtil.EF.CRUDService.CoreExtension.csproj" />
+    <ProjectReference Include="..\EngUtil.Data.Random\EngUtil.Mock.Helper.csproj" />
     <ProjectReference Include="..\EngUtil.EF.CRUDService.Core\EngUtil.EF.CRUDService.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="DependencyResolution\" />
   </ItemGroup>
 
 </Project>

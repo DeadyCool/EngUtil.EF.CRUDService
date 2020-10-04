@@ -1,15 +1,16 @@
 ﻿using engUtil.Dto;
-using EngUtil.EF.CRUDService.Core;
 using EngUtil.EF.CRUDService.Core_Tests.DataAccess;
 using EngUtil.EF.CRUDService.Core_Tests.DataAccess.Entities;
+using EngUtil.EF.CRUDService.Core_Tests.Extension;
 using EngUtil.EF.CRUDService.Core_Tests.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EngUtil.EF.CRUDService.Core_Tests.Repos
 {
-    public class PhoneNumberRepository : RepositoryBaseDto<PhoneBookContext, PhoneNumberEntity, PhoneNumberModel>
+    public class PhoneNumberRepository : RepositoryDto<AddressBookContext, PhoneNumberEntity, TelefonnummerModel>
     {
-        public PhoneNumberRepository(ISessionContext<PhoneBookContext> contextService, IMapper dtoMapper) 
-            : base(contextService, dtoMapper)
+        public PhoneNumberRepository(DbContextOptions<AddressBookContext> contextOptions, IMapper dtoMapper) 
+            : base(contextOptions, dtoMapper)
         {
         }
     }
