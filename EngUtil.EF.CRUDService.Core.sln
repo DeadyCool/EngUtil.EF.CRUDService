@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1145
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngUtil.EF.CRUDService.Core", "EngUtil.EF.CRUDService.Core\EngUtil.EF.CRUDService.Core_.csproj", "{E1D6B0C9-0756-49B7-8E54-195F2CA56E19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngUtil.EF.CRUDService.Core", "EngUtil.EF.CRUDService.Core\EngUtil.EF.CRUDService.Core.csproj", "{E1D6B0C9-0756-49B7-8E54-195F2CA56E19}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngUtil.EF.CRUDService.Core_Tests", "EngUtil.EF.CRUDService.Core_Tests\EngUtil.EF.CRUDService.Core_Tests_.csproj", "{CC656EBB-1376-424C-BEC2-76D45BD1B2B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngUtil.EF.CRUDService.Core_Tests", "EngUtil.EF.CRUDService.Core_Tests\EngUtil.EF.CRUDService.Core_Tests.csproj", "{CC656EBB-1376-424C-BEC2-76D45BD1B2B5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngUtil.CRUDService.CoreASP_Test", "EngUtil.CRUDService.CoreASP_Test\EngUtil.CRUDService.CoreASP_Test.csproj", "{E05BA395-92DE-43B0-BCF2-D05CB9036BA4}"
 EndProject
