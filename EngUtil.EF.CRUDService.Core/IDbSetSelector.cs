@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------
-// <copyright filename="IDbSetAccessor.cs" date="20-06-2020">(c) 2020 All Rights Reserved</copyright>
+// <copyright filename="IDbSetSelector.cs" date="20-06-2020">(c) 2020 All Rights Reserved</copyright>
 // <author>Oliver Engels</author>
 // --------------------------------------------------------------------------------
 using System;
@@ -14,7 +14,7 @@ namespace EngUtil.EF.CRUDService.Core
     /// A interface to allows access to the db context from the repository
     /// </summary>
     /// <typeparam name="TSet">Represents the entity type from a <see cref="Microsoft.EntityFrameworkCore.DbSet{TEntity}Set"/></typeparam>
-    public interface IDbSetAccessor<TSet>
+    public interface IDbSetSelector<TSet>
     {
         /// <summary>
         /// Allows to filter and select an <see cref="Microsoft.EntityFrameworkCore.DbSet{TEntity}Set"/> from a <see cref="Microsoft.EntityFrameworkCore.DbContext"/> entity
@@ -46,7 +46,7 @@ namespace EngUtil.EF.CRUDService.Core
         /// <typeparam name="TResult">A type that represents the resultset</typeparam>
         /// <param name="filter">Specifies a filter expression</param>
         /// <param name="orderBy">Specifies a delegation function that arranges the entities in a specific order</param>
-        /// <param name="skip">Skip specific count of results, provided that the OrderBy expression parameter was specified. </param>
+        /// <param name="skip">Skip specific count of results, provided that the OrderBy expression parameter was specified.</param>
         /// <param name="take">Take specific count of results, provided that the OrderBy expression parameter was specified.</param>
         /// <returns></returns>
         IEnumerable<TResult> Distinct<TResult>(Expression<Func<TSet, TResult>> selector, Expression<Func<TResult, bool>> filter = null, Func<IQueryable<TResult>, IOrderedQueryable<TResult>> orderBy = null, int skip = 0, int take = 0);

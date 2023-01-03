@@ -1,15 +1,12 @@
-﻿using engUtil.Dto;
-using EngUtil.EF.CRUDService.Core_Tests.DataAccess.Entities;
+﻿using EngUtil.EF.CRUDService.Core_Tests.DataAccess.Entities;
 using EngUtil.EF.CRUDService.Core_Tests.Models;
-using System;
 using System.Linq.Expressions;
 
-namespace EngUtil.EF.CRUDService.Core_Tests.Dto
+namespace EngUtil.EF.CRUDService.Core_Tests
 {
-    public class PersonDto : MapDefinition
-    {
-        [Map]
-        public Expression<Func<PersonEntity, PersonModel>> ToModelDto =>
+    public static partial class Dto  
+    {     
+        public static Expression<Func<PersonEntity, PersonModel>> ToPersonModel =>
             x => new PersonModel
             {
                 Id= x.RecId,
@@ -22,12 +19,22 @@ namespace EngUtil.EF.CRUDService.Core_Tests.Dto
                 Geburtstag = x.DayOfBirth,
                 Strasse = x.StreetAddress,
                 Name = $"{x.Surename} {x.Name}",
-                Telefonnummern = MapTo<TelefonnummerModel>(x.Numbers),
-                EMailadressen = MapTo<EmailModel>(x.EMails)
+                Telefonnummern = x.Numbers != null ? x.Numbers.Select(n => new TelefonnummerModel
+                {
+                    Id = n.RecId,
+                    Nummer = n.Number,
+                    Typ = n.NumberType.ToString(),
+                    PersonId = n.PersonId                  
+                }) : default,
+                EMailadressen = x.EMails != null ? x.EMails.Select(n => new EmailModel
+                {
+                    Id = n.RecId,
+                    PersonId = n.PersonId,              
+                    EMailAdresse = n.EMailAddress
+                }) : default
             };
-
-        [Map]
-        public Expression<Func<PersonModel, PersonEntity>> ToEntityDto =>
+             
+        public static Expression<Func<PersonModel, PersonEntity>> ToPersonEntity =>
             x => new PersonEntity
             {
                 RecId = x.Id,         

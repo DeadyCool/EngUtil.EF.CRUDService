@@ -2,6 +2,7 @@
 // <copyright filename="Repository.cs" date="12-13-2019">(c) 2019 All Rights Reserved</copyright>
 // <author>Oliver Engels</author>
 // --------------------------------------------------------------------------------
+using EngUtil.EF.CRUDService.Core.Internal;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -20,22 +21,13 @@ namespace EngUtil.EF.CRUDService.Core
     /// <typeparam name="TDbContext">Represents the o type of <see cref="DbContext"/></typeparam>
     /// <typeparam name="TEntity">Represents a <see cref="DbSet{TEntity}"/></typeparam>
     /// <typeparam name="TModel">Represents a Dto-Model for a <see cref="DbSet{TEntity}"/>y</typeparam>
-    public abstract class Repository<TDbContext, TEntity, TModel> : DbContextAccessor<TDbContext>, IRepository<TModel>, IRepositoryDto<TEntity, TModel>
+    public abstract class Repository<TDbContext, TEntity, TModel> : DbContextBuilder<TDbContext>, IRepository<TModel>, IRepositoryDto<TEntity, TModel>
             where TDbContext : DbContext
             where TEntity : class
             where TModel : class
     {
 
         #region ctor    
-
-        /// <summary>
-        /// Creates a instance with given parameter
-        /// </summary>
-        /// <param name="sessionContext">Represents a <see cref="ISessionContext{TDbContext}"/> accessor to get the <see cref="DbContext"/></param>
-        protected Repository(ISessionContext<TDbContext> sessionContext)
-            : base(sessionContext)
-        {
-        }
 
         /// <summary>
         /// Creates a instance with given parameter
@@ -51,10 +43,10 @@ namespace EngUtil.EF.CRUDService.Core
         #region properties
 
         /// <inheritdoc/>
-        public virtual Expression<Func<TModel, TEntity>> AsEntityExpression { get; set; }
+        public abstract Expression<Func<TModel, TEntity>> AsEntityExpression { get; }
 
         /// <inheritdoc/>
-        public virtual Expression<Func<TEntity, TModel>> AsModelExpression { get; set; }
+        public abstract Expression<Func<TEntity, TModel>> AsModelExpression { get; }
 
         #endregion
 
@@ -77,7 +69,7 @@ namespace EngUtil.EF.CRUDService.Core
         {
             using (var context = CreateContext())
             {
-                var query = context.BuildSelect(AsModelExpression, filter);
+                var query = context.BuildQuery(AsModelExpression, filter);
                 return query.Count();
             }
         }
@@ -87,7 +79,7 @@ namespace EngUtil.EF.CRUDService.Core
         {
             using (var context = CreateContext())
             {
-                var query = context.BuildSelect(AsModelExpression, filter);
+                var query = context.BuildQuery(AsModelExpression, filter);
                 return await query.CountAsync();
             }
         }
@@ -97,7 +89,7 @@ namespace EngUtil.EF.CRUDService.Core
         {
             using (var context = CreateContext())
             {
-                var query = context.BuildSelect(AsModelExpression, filter, orderBy, skip, take);
+                var query = context.BuildQuery(AsModelExpression, filter, orderBy, skip, take);
                 return query.ToList();
             }
         }
@@ -105,9 +97,9 @@ namespace EngUtil.EF.CRUDService.Core
         /// <inheritdoc/>
         public virtual async Task<IEnumerable<TModel>> GetAsync(Expression<Func<TModel, bool>> filter = null, Func<IQueryable<TModel>, IOrderedQueryable<TModel>> orderBy = null, int skip = 0, int take = 0)
         {
-            using (var context = CreateContext())
+            using (var hndl = new QueryHandler<TDbContext>())
             {
-                var query = context.BuildSelect(AsModelExpression, filter, orderBy, skip, take);
+                var query = hndl.ToQuery(this, AsModelExpression, filter, orderBy, skip, take);
                 return await query.ToListAsync();
             }
         }
@@ -117,7 +109,7 @@ namespace EngUtil.EF.CRUDService.Core
         {
             using (var context = CreateContext())
             {
-                var query = context.BuildSelect(AsModelExpression, filter);
+                var query = context.BuildQuery(AsModelExpression, filter);
                 return query.FirstOrDefault();
             }
         }
@@ -127,7 +119,7 @@ namespace EngUtil.EF.CRUDService.Core
         {
             using (var context = CreateContext())
             {
-                var query = context.BuildSelect(AsModelExpression, filter);
+                var query = context.BuildQuery(AsModelExpression, filter);
                 return await query.FirstOrDefaultAsync();
             }
         }
@@ -155,9 +147,9 @@ namespace EngUtil.EF.CRUDService.Core
         }
 
         /// <inheritdoc/>
-        public IDbSetAccessor<TSet> FromDbSet<TSet>()
+        public IDbSetSelector<TSet> FromDbSet<TSet>()
         {
-            return new DbSetAccessor<TSet>(this);
+            return new DbSetSelector<TSet>(this);
         }
 
         /// <inheritdoc/>

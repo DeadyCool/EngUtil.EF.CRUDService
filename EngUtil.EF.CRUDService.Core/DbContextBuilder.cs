@@ -1,22 +1,19 @@
 // --------------------------------------------------------------------------------
-// <copyright filename="DbContextAccessor.cs" date="20-06-2020">(c) 2020 All Rights Reserved</copyright>
+// <copyright filename="DbContextBuilder.cs" date="20-06-2020">(c) 2020 All Rights Reserved</copyright>
 // <author>Oliver Engels</author>
 // --------------------------------------------------------------------------------
-using EngUtil.EF.CRUDService.Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Diagnostics;
 
 namespace EngUtil.EF.CRUDService.Core
 {
-    public abstract class DbContextAccessor<TDbContext> : DbSetSelector, IDisposable, IDbContextAccessor
+    public abstract class DbContextBuilder<TDbContext> : IDisposable, IDbContextBuilder<TDbContext>
         where TDbContext : DbContext
     {
-        #region protected
+        protected internal TDbContext DbContextInternal;
 
-        protected internal ISessionContext<TDbContext> SessionContext;
-
-        #endregion
+        protected internal DbContextOptions Options;
 
         #region fields
 
@@ -27,28 +24,30 @@ namespace EngUtil.EF.CRUDService.Core
 
         #region ctor
 
-        public DbContextAccessor(DbContextOptions<TDbContext> contextOptions)
+        public DbContextBuilder(DbContextOptions<TDbContext> contextOptions)
         {
             Options = contextOptions;
         }
 
-        public DbContextAccessor(ISessionContext<TDbContext> sessionContext)
+        public DbContextBuilder(TDbContext dbContext)
         {
-            SessionContext = sessionContext;
+            DbContextInternal = dbContext;
         }
 
         #endregion
 
         #region mothods
 
-        public virtual DbContext CreateContext()
+        public virtual TDbContext CreateContext()
         {
             if (Options != null)
                 return (TDbContext)Activator.CreateInstance(typeof(TDbContext), Options);
-            else if (SessionContext != null)
-                return SessionContext.GetContext();
-            throw new Exception("Session or DbContextOptions missing");
+            if (DbContextInternal != null)
+                return DbContextInternal;
+            throw new Exception("Missing DbContext");
         }
+
+        DbContext IDbContextBuilder.CreateContext() => CreateContext();
 
         #endregion
 
@@ -60,8 +59,7 @@ namespace EngUtil.EF.CRUDService.Core
                 return;
             if (disposing)
             {
-                if (SessionContext != null)
-                    DbContextInternal.Dispose();
+
             }
             _disposed = true;
         }
@@ -72,8 +70,7 @@ namespace EngUtil.EF.CRUDService.Core
             GC.SuppressFinalize(this);
         }
 
-
-        ~DbContextAccessor() => Dispose(false);
+        ~DbContextBuilder() => Dispose(false);
 
         #endregion
     }

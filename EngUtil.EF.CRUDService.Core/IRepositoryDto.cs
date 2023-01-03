@@ -14,12 +14,12 @@ namespace EngUtil.EF.CRUDService.Core
         /// <summary>
         /// Transformation expression from Model to Entity
         /// </summary>
-        Expression<Func<TModel, TEntity>> AsEntityExpression { get; set; }
+        Expression<Func<TModel, TEntity>> AsEntityExpression { get; }
 
         /// <summary>
         /// Transformation expression from Entity to Model
         /// </summary>
-        Expression<Func<TEntity, TModel>> AsModelExpression { get; set; }
+        Expression<Func<TEntity, TModel>> AsModelExpression { get; }
 
         /// <summary>
         /// Transform Model to Entity

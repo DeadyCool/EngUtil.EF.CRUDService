@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
@@ -32,59 +33,57 @@ namespace EngUtil.CRUDService.CoreASP_Test
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-                  
-            var connectionString = $"Data Source={Path.Combine(Path.GetTempPath(), "phonebook.sqlite")}";
 
-            var optionsBuilder = new DbContextOptionsBuilder<PhoneBookContext>();
-            optionsBuilder.UseSqlite(connectionString);
-
-            //services.AddDbContext<PhoneBookContext>(options => options.UseSqlite(Configuration["ConnectionStrings:DefaultConnection"]));
-
-            services.AddDbContext<PhoneBookContext>(options => options.UseSqlite(connectionString));       
+            services.AddDbContext<PhoneBookContext>(
+              options =>
+              {
+                  var connectionString = $"Data Source={Path.Combine(Path.GetTempPath(), "phonebook.sqlite")}";
+                  options.UseSqlite(connectionString);
+              });            
+     
             services.AddScoped<IRepository<PersonModel>, PersonRepository>(); 
             services.AddScoped<IRepository<PhoneNumberModel>, PhoneNumberRepository>();
             services.AddScoped<IRepository<EmailModel>, EmailRepository>();
 
-            services.AddSwaggerGen(options =>
+            services.AddControllers();
+            services.AddSwaggerGen(c =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo
-                {
+                c.SwaggerDoc("v1", new OpenApiInfo { 
                     Title = "CRUDService Api Test",
-                    Description = "Phonebook API, to Test CRUD-Functions",
-                    Version = "v1",
-                    Contact = new OpenApiContact
-                    {
-                        Name = "Oliver Engels",
-                        Email = "oliver.engels@sn-it.de"
-                    }
+                    Description = "Phonebook API, to Test CRUD-Functions", 
+                    Version = "v1"
                 });
             });
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            UpdateDatabase(app);
 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Phonebook Test-Project"));
             }
 
-            app.UseSwagger(c =>
+            using (var serviceScope = app.ApplicationServices.CreateScope())
             {
-                c.RouteTemplate = "docs/swagger/{documentname}/swagger.json";
-            });
+                using (var context = serviceScope.ServiceProvider.GetService<PhoneBookContext>())
+                {
+                    context.Database.EnsureCreated();
+                }
+            }
 
-            app.UseSwaggerUI(c =>
+            app.UseHttpsRedirection();
+
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
             {
-                c.SwaggerEndpoint("/docs/swagger/v1/swagger.json", "Phonebook Test-Project");
-                c.RoutePrefix = "docs/swagger";
+                endpoints.MapControllers();
             });
-
-            app.UseMvc();
         }
 
         private static void UpdateDatabase(IApplicationBuilder app)
@@ -95,8 +94,7 @@ namespace EngUtil.CRUDService.CoreASP_Test
             {
                 using (var context = serviceScope.ServiceProvider.GetService<PhoneBookContext>())
                 {
-                    context.Database.EnsureCreated();
-                    //context.Database.Migrate();
+                    context.Database.EnsureCreated();              
                 }
             }
         }

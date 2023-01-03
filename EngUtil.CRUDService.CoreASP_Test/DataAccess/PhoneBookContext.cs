@@ -45,10 +45,5 @@ namespace EngUtil.CRUDService.CoreASP_Test.DataAccess
 
         #endregion
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    //optionsBuilder.UseSqlServer(_connection);
-        //    //optionsBuilder.UseSqlite(_connection);
-        //}
     }
 }

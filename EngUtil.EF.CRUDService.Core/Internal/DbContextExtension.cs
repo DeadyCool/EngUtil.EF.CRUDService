@@ -36,17 +36,18 @@ namespace EngUtil.EF.CRUDService.Core
             return ((EntityEntry)returnEntry).Entity;
         }
 
-        public static IQueryable<TResult> BuildSelect<TSource, TResult>(this DbContext dbContext, Expression<Func<TSource, TResult>> selector, Expression<Func<TResult, bool>> filter = null, Func<IQueryable<TResult>, IOrderedQueryable<TResult>> orderBy = null, int skip = 0, int take = 0)
+        public static IQueryable<TResult> BuildQuery<TSource, TResult>(this DbContext dbContext, Expression<Func<TSource, TResult>> selector, Expression<Func<TResult, bool>> filter = null, Func<IQueryable<TResult>, IOrderedQueryable<TResult>> orderBy = null, int skip = 0, int take = 0)
         {
             var queryableSet = dbContext.GetDbSetAsIQuariable<TSource>();
             var query = queryableSet.Select(selector);
             if (queryableSet == null)
-                throw new NullReferenceException($"Could not found DbSet of Entity-Type { typeof(TSource).Name } in DbContext!");
+                throw new NullReferenceException($"Could not found DbSet of Entity-Type {typeof(TSource).Name} in DbContext!");
             if (filter != null)
                 query = query.Where(filter);
             if (orderBy != null)
             {
                 query = orderBy(query);
+
                 if (skip > 0)
                     query = query.Skip(skip);
                 if (take > 0)

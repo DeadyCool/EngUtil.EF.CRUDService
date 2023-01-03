@@ -3,6 +3,8 @@ using EngUtil.CRUDService.CoreASP_Test.DataAccess.Entities;
 using EngUtil.CRUDService.CoreASP_Test.Models;
 using EngUtil.EF.CRUDService.Core;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq.Expressions;
 
 namespace EngUtil.CRUDService.CoreASP_Test.Repos
 {
@@ -12,5 +14,9 @@ namespace EngUtil.CRUDService.CoreASP_Test.Repos
             : base(contextOptions)
         {
         }
+
+        public override Expression<Func<PhoneNumberModel, PhoneNumberEntity>> AsEntityExpression => Dto.ToPhoneNumberEntity;
+
+        public override Expression<Func<PhoneNumberEntity, PhoneNumberModel>> AsModelExpression => Dto.ToPhoneNumberModel;
     }
 }

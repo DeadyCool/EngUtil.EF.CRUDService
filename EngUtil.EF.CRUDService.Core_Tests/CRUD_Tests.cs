@@ -15,9 +15,9 @@ namespace EngUtil.EF.CRUDService.Core_Tests
     public class CRUD_Tests
     {
         private bool init = false;
-        private PersonModel _newPersonA;
-        private PersonModel _newPersonB;
-        private IServiceProvider _serviceProvider;
+        private PersonModel? _newPersonA;
+        private PersonModel? _newPersonB;
+        private IServiceProvider? _serviceProvider;
             
 
         [SetUp]
@@ -81,7 +81,7 @@ namespace EngUtil.EF.CRUDService.Core_Tests
 
             Assert.IsTrue(resultSet.Any());
         }
-                
+
         [Test]
         [Order(4)]
         public void GetFirst_Test()

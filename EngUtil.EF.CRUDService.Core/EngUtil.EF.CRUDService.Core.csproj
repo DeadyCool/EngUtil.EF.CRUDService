@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <PackageId>EngUtil.EF.CRUDService.Core</PackageId>
-    <Version>1.1.0-beta</Version>
+    <Version>6.0.0-beta</Version>
     <Authors>Oliver Engels</Authors>
     <Product>EntityFramework-CRUD-Service</Product>
     <Copyright>Oliver Engels</Copyright>
@@ -13,12 +13,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.12" />
   </ItemGroup>
   <PropertyGroup>
   <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-  <AssemblyVersion>1.1.0.0</AssemblyVersion>
-  <FileVersion>1.1.0.0</FileVersion>
+  <AssemblyVersion>6.0.0.0</AssemblyVersion>
+  <FileVersion>6.0.0.0</FileVersion>
   <Description>Repository pattern with simple CRUD-Operation for EntityFramework.Core</Description>
   <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 </PropertyGroup>

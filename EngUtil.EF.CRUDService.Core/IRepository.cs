@@ -2,7 +2,6 @@
 // <copyright filename="IRepository.cs" date="12-13-2019">(c) 2019 All Rights Reserved</copyright>
 // <author>Oliver Engels</author>
 // --------------------------------------------------------------------------------
-using EngUtil.EF.CRUDService.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -134,6 +133,6 @@ namespace EngUtil.EF.CRUDService.Core
         /// </summary>
         /// <typeparam name="TSet"></typeparam>
         /// <returns></returns>
-        IDbSetAccessor<TSet> FromDbSet<TSet>();
+        IDbSetSelector<TSet> FromDbSet<TSet>();
     }
 }

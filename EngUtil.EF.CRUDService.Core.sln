@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1145
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngUtil.EF.CRUDService.Core", "EngUtil.EF.CRUDService.Core\EngUtil.EF.CRUDService.Core.csproj", "{E1D6B0C9-0756-49B7-8E54-195F2CA56E19}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngUtil.EF.CRUDService.Core_Tests", "EngUtil.EF.CRUDService.Core_Tests\EngUtil.EF.CRUDService.Core_Tests.csproj", "{CC656EBB-1376-424C-BEC2-76D45BD1B2B5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngUtil.CRUDService.CoreASP_Test", "EngUtil.CRUDService.CoreASP_Test\EngUtil.CRUDService.CoreASP_Test.csproj", "{E05BA395-92DE-43B0-BCF2-D05CB9036BA4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngUtil.Mock.Helper", "EngUtil.Data.Random\EngUtil.Mock.Helper.csproj", "{B2F11B10-5236-4144-85AE-E762518327C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngUtil.EF.CRUDService.Core_Tests", "EngUtil.EF.CRUDService.Core_Tests\EngUtil.EF.CRUDService.Core_Tests.csproj", "{7FACED6B-0325-44D9-9BEF-01464C65BCD6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		{E1D6B0C9-0756-49B7-8E54-195F2CA56E19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1D6B0C9-0756-49B7-8E54-195F2CA56E19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1D6B0C9-0756-49B7-8E54-195F2CA56E19}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CC656EBB-1376-424C-BEC2-76D45BD1B2B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC656EBB-1376-424C-BEC2-76D45BD1B2B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CC656EBB-1376-424C-BEC2-76D45BD1B2B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CC656EBB-1376-424C-BEC2-76D45BD1B2B5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E05BA395-92DE-43B0-BCF2-D05CB9036BA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E05BA395-92DE-43B0-BCF2-D05CB9036BA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E05BA395-92DE-43B0-BCF2-D05CB9036BA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{B2F11B10-5236-4144-85AE-E762518327C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2F11B10-5236-4144-85AE-E762518327C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2F11B10-5236-4144-85AE-E762518327C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FACED6B-0325-44D9-9BEF-01464C65BCD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FACED6B-0325-44D9-9BEF-01464C65BCD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FACED6B-0325-44D9-9BEF-01464C65BCD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FACED6B-0325-44D9-9BEF-01464C65BCD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

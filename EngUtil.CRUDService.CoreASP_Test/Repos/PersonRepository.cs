@@ -15,28 +15,9 @@ namespace EngUtil.CRUDService.CoreASP_Test.Repos
         {
         }
 
-        public override Expression<Func<PersonModel, PersonEntity>> AsEntityExpression
-        {
-            get => x => new PersonEntity
-            {
-                RecId = x.Id,
-                Name = x.Forename,
-                Surename = x.Surename,
-                FullName = $"{x.Surename} {x.Forename}"
+        public override Expression<Func<PersonModel, PersonEntity>> AsEntityExpression=> Dto.ToPersonEntity;
 
-            };
-            set => base.AsEntityExpression = value;
-        }
+        public override Expression<Func<PersonEntity, PersonModel>> AsModelExpression => Dto.ToPersonModel;
 
-        public override Expression<Func<PersonEntity, PersonModel>> AsModelExpression
-        {
-            get => x => new PersonModel
-            {
-                Id = x.RecId,
-                Forename = x.Name,
-                Surename = x.Surename
-            };
-            set => base.AsModelExpression = value;
-        }
     }
 }

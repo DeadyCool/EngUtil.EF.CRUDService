@@ -4,17 +4,16 @@
 // --------------------------------------------------------------------------------
 using Microsoft.EntityFrameworkCore;
 
-namespace EngUtil.EF.CRUDService.Core.Interfaces
+namespace EngUtil.EF.CRUDService.Core
 {
-    /// <summary>
-    /// Represents a accessor to get a <see cref="Microsoft.EntityFrameworkCore.DbContext"/> from the repository 
-    /// </summary>
-    public interface IDbContextAccessor
+    public interface IDbContextBuilder<TContext> : IDbContextBuilder
+        where TContext : DbContext
     {
         /// <summary>
         /// A accessor to get the <see cref="Microsoft.EntityFrameworkCore.DbContext"/> from the repository
         /// </summary>
         /// <returns></returns>
-        DbContext CreateContext();
+        new TContext CreateContext();
     }
 }
+

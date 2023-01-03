@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using EngUtil.CRUDService.CoreASP_Test.DataAccess;
 using EngUtil.CRUDService.CoreASP_Test.Models;
 using EngUtil.EF.CRUDService.Core;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 
 namespace EngUtil.CRUDService.CoreASP_Test.Controllers
 {

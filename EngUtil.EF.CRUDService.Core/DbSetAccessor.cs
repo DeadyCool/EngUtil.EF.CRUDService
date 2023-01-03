@@ -1,8 +1,7 @@
 ﻿// --------------------------------------------------------------------------------
-// <copyright filename="DbSetAccessor.cs" date="25-06-2020">(c) 2020 All Rights Reserved</copyright>
+// <copyright filename="DbSetSelector.cs" date="25-06-2020">(c) 2020 All Rights Reserved</copyright>
 // <author>Oliver Engels</author>
 // --------------------------------------------------------------------------------
-using EngUtil.EF.CRUDService.Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -17,16 +16,16 @@ namespace EngUtil.EF.CRUDService.Core
     /// A instance to get access to a <see cref="Microsoft.EntityFrameworkCore.DbContext"/
     /// </summary>
     /// <typeparam name="TSet"></typeparam>
-    public class DbSetAccessor<TSet> : IDbSetAccessor<TSet>
+    public class DbSetSelector<TSet> : IDbSetSelector<TSet>
     {
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly IDbContextAccessor _dbContextAccessor;
+        private readonly IDbContextBuilder _dbContextAccessor;
 
         /// <summary>
         /// Creates a instance of a DbSet accsessor with given parameters
         /// </summary>
         /// <param name="dbContextAccessor">Represents a interface to access a <see cref="Microsoft.EntityFrameworkCore.DbContext"/></param>
-        public DbSetAccessor(IDbContextAccessor dbContextAccessor)
+        public DbSetSelector(IDbContextBuilder dbContextAccessor)
         {
             _dbContextAccessor = dbContextAccessor;
         }
@@ -36,7 +35,7 @@ namespace EngUtil.EF.CRUDService.Core
         {
             using (var context = _dbContextAccessor.CreateContext())
             {
-                var query = context.BuildSelect(selector, filter, orderBy, skip, take);
+                var query = context.BuildQuery(selector, filter, orderBy, skip, take);
                 return query.ToList();
             }
         }
@@ -46,7 +45,7 @@ namespace EngUtil.EF.CRUDService.Core
         {
             using (var context = _dbContextAccessor.CreateContext())
             {
-                var query = context.BuildSelect(selector, filter, orderBy, skip, take);
+                var query = context.BuildQuery(selector, filter, orderBy, skip, take);
                 return await query.ToListAsync();
             }
         }
@@ -56,7 +55,7 @@ namespace EngUtil.EF.CRUDService.Core
         {
             using (var context = _dbContextAccessor.CreateContext())
             {
-                var query = context.BuildSelect(selector, filter, orderBy, skip, take).Distinct();
+                var query = context.BuildQuery(selector, filter, orderBy, skip, take).Distinct();
                 return query.ToList();
             }
         }
@@ -66,7 +65,7 @@ namespace EngUtil.EF.CRUDService.Core
         {
             using (var context = _dbContextAccessor.CreateContext())
             {
-                var query = context.BuildSelect(selector, filter, orderBy, skip, take).Distinct();
+                var query = context.BuildQuery(selector, filter, orderBy, skip, take).Distinct();
                 return await query.ToArrayAsync();
             }
         }
@@ -76,7 +75,7 @@ namespace EngUtil.EF.CRUDService.Core
         {
             using (var context = _dbContextAccessor.CreateContext())
             {
-                var query = context.BuildSelect(selector, filter);
+                var query = context.BuildQuery(selector, filter);
                 return query.Count();
             }
         }
@@ -86,7 +85,7 @@ namespace EngUtil.EF.CRUDService.Core
         {
             using (var context = _dbContextAccessor.CreateContext())
             {
-                var query = context.BuildSelect(selector, filter);
+                var query = context.BuildQuery(selector, filter);
                 return await query.CountAsync();
             }
         }

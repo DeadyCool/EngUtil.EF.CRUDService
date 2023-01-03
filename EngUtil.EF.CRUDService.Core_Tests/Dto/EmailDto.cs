@@ -1,25 +1,34 @@
-﻿using engUtil.Dto;
-using EngUtil.EF.CRUDService.Core_Tests.DataAccess.Entities;
+﻿using EngUtil.EF.CRUDService.Core_Tests.DataAccess.Entities;
 using EngUtil.EF.CRUDService.Core_Tests.Models;
-using System;
 using System.Linq.Expressions;
 
-namespace EngUtil.EF.CRUDService.Core_Tests.Dto
+namespace EngUtil.EF.CRUDService.Core_Tests
 {
-    public class EmailDto : MapDefinition
+    public static partial class Dto
     {
-        [Map]
-        public Expression<Func<EmailEntity, EmailModel>> ToModelDto =>
+       
+        public static Expression<Func<EmailEntity, EmailModel>> ToEmailModel =>
             x => new EmailModel
             {
                 Id = x.RecId,    
                 PersonId = x.PersonId,
-                Person = x.Person != null ? MapTo<PersonModel>(x.Person) : default,
+                Person = x.Person != null ? new PersonModel
+                {
+                    Id = x.Person.RecId,
+                    Vorname = x.Person.Name,
+                    Nachname = x.Person.Surename,
+                    Bundesland = x.Person.State,
+                    Erstellt = x.Person.Created,
+                    Ort = x.Person.Location,
+                    PLZ = x.Person.ZIPCode,
+                    Geburtstag = x.Person.DayOfBirth,
+                    Strasse = x.Person.StreetAddress,
+                    Name = $"{x.Person.Surename} {x.Person.Name}"
+                } : default,
                 EMailAdresse = x.EMailAddress
             };
-
-        [Map]
-        public Expression<Func<EmailModel, EmailEntity>> ToEntityDto =>
+        
+        public static Expression<Func<EmailModel, EmailEntity>> ToEmailEntity =>
             x => new EmailEntity
             {
                 RecId = x.Id,
