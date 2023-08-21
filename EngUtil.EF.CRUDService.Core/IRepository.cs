@@ -1,11 +1,9 @@
 // --------------------------------------------------------------------------------
-// <copyright filename="IRepository.cs" date="12-13-2019">(c) 2019 All Rights Reserved</copyright>
+// <copyright filename="IRepository.cs" date="18-08-2023">(c) 2019 All Rights Reserved</copyright>
 // <author>Oliver Engels</author>
 // --------------------------------------------------------------------------------
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace EngUtil.EF.CRUDService.Core
@@ -13,126 +11,86 @@ namespace EngUtil.EF.CRUDService.Core
     /// <summary>
     /// Represents a interface for common CRUD-Operations
     /// </summary>
-    /// <typeparam name="TModel">Represents a type for a specific entity</typeparam>
-    public interface IRepository<TModel>
+    /// <typeparam name="TModel">Represents a type for a specific entry</typeparam>
+    public interface IRepository<TModel> : IReadOnlyRepository<TModel>
         where TModel : class
     {
         /// <summary>
-        /// Counts the number of entities inside the repository
+        /// Inserts a new entry in the repository.
         /// </summary>
-        /// <param name="filter">Specifies a filter as lambda expression</param>
-        /// <returns></returns>
-        int Count(Expression<Func<TModel, bool>> filter = null);
-
-        /// <summary>
-        /// Counts the number of entities inside the repository
-        /// </summary>
-        /// <param name="filter">Specifies a filter as lambda expression</param>
-        /// <returns></returns>
-        Task<int> CountAsync(Expression<Func<TModel, bool>> filter = null);
-
-        /// <summary>
-        /// Returns the first entity from the repository
-        /// </summary>
-        /// <param name="filter">Specifies a filter as lambda expression</param>
-        TModel GetFirst(Expression<Func<TModel, bool>> filter);
-
-        /// <summary>
-        /// Returns the first entity from the repository
-        /// </summary>
-        /// <param name="filter">Specifies a filter as lambda expression</param>
-        Task<TModel> GetFirstAsync(Expression<Func<TModel, bool>> filter);
-
-
-        /// <summary>
-        /// Returns a list of entities from the repository
-        /// </summary>
-        /// <param name="filter">Specifies a filter as lambda expression</param>
-        /// <param name="orderBy">Specifies a delegation function that arranges the entities in a specific order</param>
-        /// <param name="skip">Skip specific count of results, provided that the OrderBy expression parameter was specified. </param>
-        /// <param name="take">Take specific count of results, provided that the OrderBy expression parameter was specified.</param>
-        IEnumerable<TModel> Get(Expression<Func<TModel, bool>> filter = null,
-                                           Func<IQueryable<TModel>, IOrderedQueryable<TModel>> orderBy = null,
-                                           int skip = 0,
-                                           int take = 0);
-
-        /// <summary>
-        /// Returns a list of entities from the repository
-        /// </summary>
-        /// <param name="filter">Specifies a filter as lambda expression</param>
-        /// <param name="orderBy">Specifies a delegation function that arranges the entities in a specific order</param>
-        /// <param name="skip">Skip specific count of results, provided that the OrderBy expression parameter was specified. </param>
-        /// <param name="take">Take specific count of results, provided that the OrderBy expression parameter was specified.</param>
-        Task<IEnumerable<TModel>> GetAsync(Expression<Func<TModel, bool>> filter = null,
-                                           Func<IQueryable<TModel>, IOrderedQueryable<TModel>> orderBy = null,
-                                           int skip = 0,
-                                           int take = 0);
-
-        /// <summary>
-        /// Inserts a entity in the repository
-        /// </summary>
-        /// <param name="model"></param>
+        /// <param name="model">Specifies the entry to be inserted.</param>
         TModel Insert(TModel model);
 
         /// <summary>
-        /// Inserts a entity in the repository
+        /// Inserts a new entry in the repository.
         /// </summary>
-        /// <param name="model"></param>
-        Task<TModel> InsertAsync(TModel model);
+        /// <param name="model">Specifies the entry to be inserted.</param>
+        Task<TModel> InsertAsync(TModel model, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Updates a entity in the repository
+        /// Inserts a range of entries in the repository.
         /// </summary>
-        /// <param name="model"></param>   
+        /// <param name="model">Specifies the collection of entries to be inserted.</param>
+        void InsertRange(IEnumerable<TModel> model);
+
+        /// <summary>
+        /// Inserts a range of entries in the repository.
+        /// </summary>
+        /// <param name="model">Specifies the collection of entries to be inserted.</param>
+        /// <param name="cancellationToken">Propagates notification that operations should be canceled.</param>
+        /// <returns></returns>
+        Task InsertRangeAsync(IEnumerable<TModel> model, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Updates a entry in the repository.
+        /// </summary>
+        /// <param name="model">Specifies the entry to be updated.</param>   
         void Update(TModel model);
 
         /// <summary>
-        /// Updates a entity in the repository
+        /// Updates a entry in the repository.
         /// </summary>
-        /// <param name="model"></param>
-        Task UpdateAsync(TModel model);
+        /// <param name="model">Specifies the entry to be updated.</param>
+        /// <param name="cancellationToken">Propagates notification that operations should be canceled.</param>
+        Task UpdateAsync(TModel model, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Remove a entity from the repository
+        /// Removes a entry from the repository.
         /// </summary>
-        /// <param name="model"></param>
+        /// <param name="model">Specifies the entry to be removed.</param>
         void Delete(TModel model);
 
         /// <summary>
-        /// Remove a entity from the repository
+        /// Removes a entry from the repository.
         /// </summary>
-        /// <param name="model"></param>
-        Task DeleteAsync(TModel model);
+        /// <param name="model">Specifies the entry to be removed.</param>
+        /// <param name="cancellationToken">Propagates notification that operations should be canceled.</param>
+        Task DeleteAsync(TModel model, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Remove a entity from the repository
+        /// Removes a entry from the repository.
         /// </summary>
-        /// <param name="key"></param>
+        /// <param name="key">Specifies the corresponding keys to be removed.</param>
         void Delete(object[] key);
 
         /// <summary>
-        /// Remove a entity from the repository
+        /// Removes a entry from the repository.
         /// </summary>
-        /// <param name="key"></param>
-        Task DeleteAsync(object[] key);
+        /// <param name="key">Specifies the corresponding keys to be removed.</param>
+        /// <param name="cancellationToken">Propagates notification that operations should be canceled.</param>
+        Task DeleteAsync(object[] key, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Remove a entity from the repository
+        /// Removes a entry from the repository.
         /// </summary>
-        /// <param name="key"></param>
+        /// <param name="key">Specifies the corresponding key to be removed.</param>
         void Delete(object key);
 
         /// <summary>
-        /// Remove a entity from the repository
+        /// Removes a entry from the repository.
         /// </summary>
-        /// <param name="key"></param>
-        Task DeleteAsync(object key);
-
-        /// <summary>
-        /// Accesses a specific entity from the DbContext
-        /// </summary>
-        /// <typeparam name="TSet"></typeparam>
-        /// <returns></returns>
-        IDbSetSelector<TSet> FromDbSet<TSet>();
+        /// <param name="key">Specifies the corresponding key to be removed.</param>
+        /// <param name="cancellationToken">Propagates notification that operations should be canceled.</param>
+        Task DeleteAsync(object key, CancellationToken cancellationToken = default);
     }
 }

@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace EngUtil.CRUDService.CoreASP_Test.Repos
 {
-    public class EmailRepository : Repository<PhoneBookContext, EmailEntity, EmailModel>
+    public class EmailRepository : Repository<EmailEntity, EmailModel>
     {
         public EmailRepository(DbContextOptions<PhoneBookContext> contextOptions) 
             : base(contextOptions)

@@ -8,6 +8,20 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;8618;8601</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;8618;8601</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Extension\**" />
+    <EmbeddedResource Remove="Extension\**" />
+    <None Remove="Extension\**" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="6.0.12" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
@@ -24,10 +38,6 @@
   <ItemGroup>
     <ProjectReference Include="..\EngUtil.Data.Random\EngUtil.Mock.Helper.csproj" />
     <ProjectReference Include="..\EngUtil.EF.CRUDService.Core\EngUtil.EF.CRUDService.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Extension\" />
   </ItemGroup>
 
 </Project>

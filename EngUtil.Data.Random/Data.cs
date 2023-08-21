@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Linq;
+using System.Text;
 
 namespace EngUtil.Mock.Helper
 {
@@ -31,9 +33,9 @@ namespace EngUtil.Mock.Helper
 
         private static string[] _streetList => JsonConvert.DeserializeObject<string[]>(_streetsJson);
 
-        private static Location[] _locations => JsonConvert.DeserializeObject<string[]>(_locationsJson)
+        private static Place[] _locations => JsonConvert.DeserializeObject<string[]>(_locationsJson)
                 .Select(x => x.Split(new[] { "," }, System.StringSplitOptions.None))
-                .Select(x => new Location { OsmId = x[0], Ags = x[1], Ort = x[2], PLZ = x[3], Landkreis = x[4], Bundesland = x[5] }).ToArray();
+                .Select(x => new Place { OsmId = x[0], Ags = x[1], Location = x[2], ZIPCode = x[3], District = x[4], State = x[5] }).ToArray();
 
 
         public static string RandomMalename => _mNameList[Randomizor.RandomNumber(0, _mNameList.Count())];
@@ -44,10 +46,22 @@ namespace EngUtil.Mock.Helper
 
         public static string RandomStreet => _streetList[Randomizor.RandomNumber(0, _streetList.Count())];
 
-        public static Location RandomLocation => _locations[Randomizor.RandomNumber(0, _locations.Count())];
+        public static Place RandomPlace=> _locations[Randomizor.RandomNumber(0, _locations.Count())];
 
         public static string RandomMobileNumber => $"{_mobilePrefixes[Randomizor.RandomNumber(0, _mobilePrefixes.Count())]} {Randomizor.RandomNumber(1000000,9999999)}";
 
         public static string RandomEmailSuffix => _emailSuffixes[Randomizor.RandomNumber(0, _emailSuffixes.Count())];
+
+        public static string CreatePassword(int length)
+        {
+            const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            StringBuilder res = new StringBuilder();
+            Random rnd = new Random();
+            while (0 < length--)
+            {
+                res.Append(valid[rnd.Next(valid.Length)]);
+            }
+            return res.ToString();
+        }
     }
 }

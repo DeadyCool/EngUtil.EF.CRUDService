@@ -14,14 +14,14 @@ namespace EngUtil.EF.CRUDService.Core_Tests.DependencyResolution
         {
             var builder = new ServiceCollection();
 
-            builder.AddDbContext<AddressBookContext>(options =>
+            builder.AddDbContext<NewspaperContext>(options =>
             {     
                 options.UseSqlite($"Data Source={TestSettings.DbLitePath}");             
             }, ServiceLifetime.Transient);
 
-            builder.AddTransient<IRepository<PersonModel>, PersonRepository>();
-            builder.AddTransient<IRepository<EmailModel>, EmailRepository>();
-            builder.AddTransient<IRepository<TelefonnummerModel>, PhoneNumberRepository>();
+            builder.AddScoped<IRepository<UserModel>, UserRepository>();
+            builder.AddScoped<IRepository<NewsModel>, NewsRepository>();
+            builder.AddScoped<IRepository<CommentModel>, CommentRepository>();
 
 
             return builder.BuildServiceProvider();

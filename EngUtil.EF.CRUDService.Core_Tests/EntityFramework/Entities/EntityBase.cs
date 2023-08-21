@@ -2,10 +2,7 @@
 // <copyright filename="EntityBase.cs" date="12-13-2019">(c) 2019 All Rights Reserved</copyright>
 // <author>Oliver Engels</author>
 // --------------------------------------------------------------------------------
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace EngUtil.EF.CRUDService.Core_Tests.DataAccess.Entities
 {
@@ -21,5 +18,11 @@ namespace EngUtil.EF.CRUDService.Core_Tests.DataAccess.Entities
         public Guid RecId { get; set; }
 
         public DateTime Created {get;set;}
+
+        public Guid CreatedBy { get; set; }
+
+        public DateTime? Updated { get; set; }
+
+        public Guid? UpdatedBy { get; set; }
     }
 }

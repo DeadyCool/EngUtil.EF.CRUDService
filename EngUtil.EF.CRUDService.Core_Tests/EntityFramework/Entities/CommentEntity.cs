@@ -2,19 +2,21 @@
 // <copyright filename="PhoneNumberEntity.cs" date="12-13-2019">(c) 2019 All Rights Reserved</copyright>
 // <author>Oliver Engels</author>
 // --------------------------------------------------------------------------------
-using System;
+using EngUtil.EF.CRUDService.Core_Tests.EntityFramework.Entities;
 
 
 namespace EngUtil.EF.CRUDService.Core_Tests.DataAccess.Entities
 {
-    public class PhoneNumberEntity : EntityBase
+    public class CommentEntity : EntityBase
     {
-        public string Number { get; set; }
+        public string Content { get; set; }   
 
-        public NumberType NumberType { get; set; }
+        public Guid UserId { get; set; }
 
-        public Guid PersonId { get; set; }
+        public UserEntity User { get; set; }
 
-        public PersonEntity Person { get; set; }
+        public Guid NewsId { get; set; }
+
+        public NewsEntity News { get; set; }
     }
 }

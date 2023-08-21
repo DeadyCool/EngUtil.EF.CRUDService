@@ -5,18 +5,17 @@ using EngUtil.EF.CRUDService.Core_Tests.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-
 namespace EngUtil.EF.CRUDService.Core_Tests.Repos
 {
-    public class EmailRepository : Repository<AddressBookContext, EmailEntity, EmailModel>
+    public class CommentRepository : Repository<CommentEntity, CommentModel>
     {
-        public EmailRepository(DbContextOptions<AddressBookContext> contextOptions) 
+        public CommentRepository(DbContextOptions<NewspaperContext> contextOptions) 
             : base(contextOptions)
         {
         }
 
-        public override Expression<Func<EmailModel, EmailEntity>> AsEntityExpression => Dto.ToEmailEntity;
+        public override Expression<Func<CommentModel, CommentEntity>> AsEntityExpression => Dto.ToCommentEntity;
 
-        public override Expression<Func<EmailEntity, EmailModel>> AsModelExpression => Dto.ToEmailModel;
+        public override Expression<Func<CommentEntity, CommentModel>> AsModelExpression => Dto.ToCommentModel;
     }
 }

@@ -7,27 +7,17 @@ using System.Linq.Expressions;
 
 namespace EngUtil.EF.CRUDService.Core
 {
-    public interface IRepositoryDto<TEntity, TModel>
+    public interface IRepositoryReadDto<TEntity, TModel>
         where TModel : class
         where TEntity : class
     {
         /// <summary>
-        /// Transformation expression from Model to Entity
+        /// Transformation expression from Entity to Model.
         /// </summary>
-        Expression<Func<TModel, TEntity>> AsEntityExpression { get; }
+        Expression<Func<TEntity, TModel>> AsModelExpression { get; set; }
 
         /// <summary>
-        /// Transformation expression from Entity to Model
-        /// </summary>
-        Expression<Func<TEntity, TModel>> AsModelExpression { get; }
-
-        /// <summary>
-        /// Transform Model to Entity
-        /// </summary>
-        TEntity AsEntity(TModel model);
-
-        /// <summary>
-        /// Transform Entity to Model
+        /// Transform Entity to Model.
         /// </summary>
         TModel AsModel(TEntity entity);
     }

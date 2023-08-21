@@ -1,17 +1,17 @@
 ﻿namespace EngUtil.Mock.Helper
 {
-    public class Location
+    public class Place
     {
         public string OsmId { get; set; }
 
         public string Ags { get; set; }
 
-        public string Ort { get; set; }
+        public string Location { get; set; }
 
-        public string PLZ { get; set; }
+        public string ZIPCode { get; set; }
 
-        public string Landkreis { get; set; }
+        public string District { get; set; }
 
-        public string Bundesland { get; set; }
+        public string State { get; set; }
     }
 }
