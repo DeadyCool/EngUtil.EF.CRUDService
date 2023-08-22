@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngUtil.EF.CRUDService.Core", "EngUtil.EF.CRUDService.Core\EngUtil.EF.CRUDService.Core.csproj", "{E1D6B0C9-0756-49B7-8E54-195F2CA56E19}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngUtil.Mock.Helper", "EngUtil.Data.Random\EngUtil.Mock.Helper.csproj", "{B2F11B10-5236-4144-85AE-E762518327C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngUtil.Mock.Helper", "EngUtil.Mock.Helper\EngUtil.Mock.Helper.csproj", "{B2F11B10-5236-4144-85AE-E762518327C4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngUtil.EF.CRUDService.Core_Tests", "EngUtil.EF.CRUDService.Core_Tests\EngUtil.EF.CRUDService.Core_Tests.csproj", "{7FACED6B-0325-44D9-9BEF-01464C65BCD6}"
 EndProject
