@@ -7,9 +7,10 @@
     <Authors>Oliver Engels</Authors>
     <Product>EntityFramework-CRUD-Service</Product>
     <Copyright>Oliver Engels</Copyright>
-    <PackageProjectUrl>https://github.com/DeadyCool/EngUtil.EF.CRUDService/tree/master/engUtil.EF.CRUDService.Core</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/DeadyCool/EngUtil.EF.CRUDService</PackageProjectUrl>
     <RepositoryUrl>https://github.com/DeadyCool/EngUtil.EF.CRUDService/tree/master/engUtil.EF.CRUDService.Core</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,5 +28,8 @@
 </PropertyGroup>
 <ItemGroup>
   <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" />
+</ItemGroup>
+<ItemGroup>
+  <None Update="doc\readme.md" Pack="true" PackagePath="\" />
 </ItemGroup>
 </Project>

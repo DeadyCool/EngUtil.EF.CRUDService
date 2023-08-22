@@ -1,0 +1,1 @@
+The CRUD-service provides simple crud operations for data transfer between data and business layer.
