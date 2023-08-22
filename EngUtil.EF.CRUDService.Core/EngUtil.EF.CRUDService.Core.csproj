@@ -19,10 +19,11 @@
   <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   <AssemblyVersion>6.0.21</AssemblyVersion>
   <FileVersion>6.0.21</FileVersion>
-  <Description>Provides simple CRUD operations for data transfer between data and businsess layer. </Description>
+  <Description>Provides simple CRUD operations for data transfer between data and business layers for entity framework.</Description>
   <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-  <Title>CRUD-Service</Title>
+  <Title>EntityFramework-CRUD-Service</Title>
   <PackageTags>CRUD, EntityFramework</PackageTags>
+  <SignAssembly>False</SignAssembly>
 </PropertyGroup>
 <ItemGroup>
   <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" />
