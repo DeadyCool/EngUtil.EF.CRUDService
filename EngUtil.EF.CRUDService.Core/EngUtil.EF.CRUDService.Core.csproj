@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <PackageId>EngUtil.EF.CRUDService.Core</PackageId>
-    <Version>7.0.16</Version>
+    <Version>8.0.2</Version>
     <Authors>Oliver Engels</Authors>
     <Product>EntityFramework-CRUD-Service</Product>
     <Copyright>Oliver Engels</Copyright>
@@ -14,12 +14,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
   </ItemGroup>
   <PropertyGroup>
   <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-  <AssemblyVersion>7.0.16</AssemblyVersion>
-  <FileVersion>7.0.16</FileVersion>
+  <AssemblyVersion>8.0.2</AssemblyVersion>
+  <FileVersion>8.0.2</FileVersion>
   <Description>Provides simple CRUD operations for data transfer between data and business layers for entity framework.</Description>
   <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   <Title>EntityFramework-CRUD-Service</Title>
