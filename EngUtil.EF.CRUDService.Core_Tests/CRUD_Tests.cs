@@ -5,6 +5,7 @@ using EngUtil.EF.CRUDService.Core_Tests.Models;
 using EngUtil.Mock.Helper;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 
 namespace EngUtil.EF.CRUDService.Core_Tests
 {
@@ -45,7 +46,7 @@ namespace EngUtil.EF.CRUDService.Core_Tests
             _newUserA = userRepo?.Insert(CreatePerson());
             _newUserB = userRepo?.Insert(CreatePerson());
 
-            Assert.IsTrue(_newUserA.Id != Guid.Empty);
+            ClassicAssert.IsTrue(_newUserA.Id != Guid.Empty);
         }
 
         [Test]
@@ -57,7 +58,7 @@ namespace EngUtil.EF.CRUDService.Core_Tests
             _newUserC = await userRepo?.InsertAsync(CreatePerson());
             _newUserD = await userRepo?.InsertAsync(CreatePerson());
 
-            Assert.IsTrue(_newUserB.Id != Guid.Empty && _newUserC.Id != Guid.Empty);
+            ClassicAssert.IsTrue(_newUserB.Id != Guid.Empty && _newUserC.Id != Guid.Empty);
         }
 
         [Test]
@@ -68,7 +69,7 @@ namespace EngUtil.EF.CRUDService.Core_Tests
 
             var resultSet = userRepo?.Get(x=> x.Id == _newUserA.Id);
 
-            Assert.IsTrue(resultSet.Any());
+            ClassicAssert.IsTrue(resultSet.Any());
         }
 
         [Test]
@@ -79,7 +80,7 @@ namespace EngUtil.EF.CRUDService.Core_Tests
 
             var resultSet = await userRepo?.GetAsync(x => x.Id == _newUserB.Id);
 
-            Assert.IsTrue(resultSet.Any());
+            ClassicAssert.IsTrue(resultSet.Any());
         }
 
         [Test]
@@ -90,7 +91,7 @@ namespace EngUtil.EF.CRUDService.Core_Tests
 
             var result = userRepo?.GetFirst(x => x.Id == _newUserA.Id);
 
-            Assert.IsTrue(result != null);
+            ClassicAssert.IsTrue(result != null);
         }
 
         [Test]
@@ -101,7 +102,7 @@ namespace EngUtil.EF.CRUDService.Core_Tests
 
             var result = await userRepo?.GetFirstAsync(x => x.Id == _newUserB.Id);
 
-            Assert.IsTrue(result != null);
+            ClassicAssert.IsTrue(result != null);
         }
 
         [Test]
@@ -120,7 +121,7 @@ namespace EngUtil.EF.CRUDService.Core_Tests
 
             var result = userRepo?.GetFirst(x => x.Id == _newUserA.Id);
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 result?.State == _newUserA.State &&
                 result?.ZIPCode == _newUserA.ZIPCode &&
                 result?.Location == _newUserA.Location &&
@@ -143,7 +144,7 @@ namespace EngUtil.EF.CRUDService.Core_Tests
 
             var result = await userRepo?.GetFirstAsync(x => x.Id == _newUserB.Id);
 
-            Assert.IsTrue(
+            ClassicAssert.IsTrue(
                 result?.State == _newUserB.State &&
                 result?.ZIPCode == _newUserB.ZIPCode &&
                 result?.Location == _newUserB.Location &&
@@ -158,7 +159,7 @@ namespace EngUtil.EF.CRUDService.Core_Tests
 
             var count = userRepo?.Count();
 
-            Assert.IsTrue(count == 4);
+            ClassicAssert.IsTrue(count == 4);
         }
 
         [Test]
@@ -169,7 +170,7 @@ namespace EngUtil.EF.CRUDService.Core_Tests
 
             var count = await userRepo?.CountAsync();
 
-            Assert.IsTrue(count == 4);
+            ClassicAssert.IsTrue(count == 4);
         }
 
         [Test]
@@ -182,7 +183,7 @@ namespace EngUtil.EF.CRUDService.Core_Tests
 
             var count = userRepo?.Count();
 
-            Assert.IsTrue(count == 3);
+            ClassicAssert.IsTrue(count == 3);
         }
 
         [Test]
@@ -195,7 +196,7 @@ namespace EngUtil.EF.CRUDService.Core_Tests
 
             var count = userRepo?.Count();
 
-            Assert.IsTrue(count == 2);
+            ClassicAssert.IsTrue(count == 2);
         }
 
         [Test]
@@ -212,7 +213,7 @@ namespace EngUtil.EF.CRUDService.Core_Tests
 
             var afterCount = userRepo?.Count();
 
-            Assert.IsTrue(beforeCount == 3 && afterCount == 2);
+            ClassicAssert.IsTrue(beforeCount == 3 && afterCount == 2);
         }
 
         [Test]
@@ -229,7 +230,7 @@ namespace EngUtil.EF.CRUDService.Core_Tests
 
             var afterCount = await userRepo?.CountAsync();
 
-            Assert.IsTrue(beforeCount == 3 && afterCount == 2);
+            ClassicAssert.IsTrue(beforeCount == 3 && afterCount == 2);
         }
 
         [Test]
@@ -264,7 +265,7 @@ namespace EngUtil.EF.CRUDService.Core_Tests
 
             var count = commentRepo.Count(x => x.NewsId == newNews.Id);
 
-            Assert.IsTrue(count == 10);
+            ClassicAssert.IsTrue(count == 10);
         }
 
         [Test]
@@ -299,7 +300,7 @@ namespace EngUtil.EF.CRUDService.Core_Tests
 
             var count = await commentRepo.CountAsync(x=> x.NewsId == newNews.Id);
 
-            Assert.IsTrue(count == 10);
+            ClassicAssert.IsTrue(count == 10);
         }
 
 

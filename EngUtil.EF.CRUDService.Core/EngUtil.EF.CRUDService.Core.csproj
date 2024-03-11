@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <PackageId>EngUtil.EF.CRUDService.Core</PackageId>
-    <Version>6.0.21</Version>
+    <Version>7.0.16</Version>
     <Authors>Oliver Engels</Authors>
     <Product>EntityFramework-CRUD-Service</Product>
     <Copyright>Oliver Engels</Copyright>
@@ -14,12 +14,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.16" />
   </ItemGroup>
   <PropertyGroup>
   <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-  <AssemblyVersion>6.0.21</AssemblyVersion>
-  <FileVersion>6.0.21</FileVersion>
+  <AssemblyVersion>7.0.16</AssemblyVersion>
+  <FileVersion>7.0.16</FileVersion>
   <Description>Provides simple CRUD operations for data transfer between data and business layers for entity framework.</Description>
   <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   <Title>EntityFramework-CRUD-Service</Title>
@@ -30,6 +30,9 @@
   <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" />
 </ItemGroup>
 <ItemGroup>
-  <None Update="doc\readme.md" Pack="true" PackagePath="\" />
+  <None Update="readme.md">
+    <PackagePath>\</PackagePath>
+    <Pack>true</Pack>
+  </None>
 </ItemGroup>
 </Project>
